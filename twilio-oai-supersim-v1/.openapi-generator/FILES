@@ -5,9 +5,10 @@ src/apis/default_api.rs
 src/apis/mod.rs
 src/lib.rs
 src/models/list_billing_period_response.rs
-src/models/list_command_response.rs
-src/models/list_command_response_meta.rs
+src/models/list_esim_profile_response.rs
+src/models/list_esim_profile_response_meta.rs
 src/models/list_fleet_response.rs
+src/models/list_ip_command_response.rs
 src/models/list_network_access_profile_network_response.rs
 src/models/list_network_access_profile_response.rs
 src/models/list_network_response.rs
@@ -15,8 +16,9 @@ src/models/list_sim_response.rs
 src/models/list_sms_command_response.rs
 src/models/list_usage_record_response.rs
 src/models/mod.rs
-src/models/supersim_v1_command.rs
+src/models/supersim_v1_esim_profile.rs
 src/models/supersim_v1_fleet.rs
+src/models/supersim_v1_ip_command.rs
 src/models/supersim_v1_network.rs
 src/models/supersim_v1_network_access_profile.rs
 src/models/supersim_v1_network_access_profile_network_access_profile_network.rs

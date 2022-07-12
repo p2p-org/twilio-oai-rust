@@ -128,6 +128,7 @@ components:
           type: string
         links:
           description: The URLs of the resources related to the service
+          format: uri-map
           nullable: true
           type: object
         log_enabled:
@@ -200,6 +201,7 @@ components:
           type: string
         links:
           description: The URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         notification_protocol_version:
@@ -248,12 +250,10 @@ components:
         alexa:
           description: Deprecated
           nullable: true
-          type: object
         apn:
           description: The APNS-specific payload that overrides corresponding attributes
             in a generic payload for APNS Bindings
           nullable: true
-          type: object
         body:
           description: The notification body text
           nullable: true
@@ -261,7 +261,6 @@ components:
         data:
           description: The custom key-value pairs of the notification's payload
           nullable: true
-          type: object
         date_created:
           description: The RFC 2822 date and time in GMT when the resource was created
           format: date-time
@@ -270,17 +269,14 @@ components:
         facebook_messenger:
           description: Deprecated
           nullable: true
-          type: object
         fcm:
           description: The FCM-specific payload that overrides corresponding attributes
             in generic payload for FCM Bindings
           nullable: true
-          type: object
         gcm:
           description: The GCM-specific payload that overrides corresponding attributes
             in generic payload for GCM Bindings
           nullable: true
-          type: object
         identities:
           description: The list of identity values of the Users to notify
           items:
@@ -318,7 +314,6 @@ components:
           description: The SMS-specific payload that overrides corresponding attributes
             in generic payload for SMS Bindings
           nullable: true
-          type: object
         sound:
           description: The name of the sound to be played for the notification
           nullable: true
@@ -353,7 +348,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Notify
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Credentials:
@@ -936,6 +931,7 @@ paths:
       - endpoint
       - binding_type
       - address
+      parent: /Services
       pathType: list
   /v1/Services/{ServiceSid}/Bindings/{Sid}:
     delete:
@@ -1014,6 +1010,7 @@ paths:
       - endpoint
       - binding_type
       - address
+      parent: /Services
       pathType: instance
   /v1/Services/{ServiceSid}/Notifications:
     description: 'TODO: Resource-level docs'
@@ -1044,7 +1041,6 @@ paths:
                   type: string
                 Alexa:
                   description: Deprecated.
-                  type: object
                 Apn:
                   description: The APNS-specific payload that overrides corresponding
                     attributes in the generic payload for APNS Bindings. This property
@@ -1053,7 +1049,6 @@ paths:
                     to the root of the dictionary. See the [APNS documentation](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CommunicatingwithAPNs.html)
                     for more details. We reserve keys that start with `twi_` for future
                     use. Custom keys that start with `twi_` are not allowed.
-                  type: object
                 Body:
                   description: The notification text. For FCM and GCM, translates
                     to `data.twi_body`. For APNS, translates to `aps.alert.body`.
@@ -1072,13 +1067,11 @@ paths:
                     with `twi_` are not allowed and are rejected as 400 Bad request
                     with no delivery attempted. For SMS, this parameter is not supported
                     and is omitted from deliveries to those channels.
-                  type: object
                 DeliveryCallbackUrl:
                   description: URL to send webhooks.
                   type: string
                 FacebookMessenger:
                   description: Deprecated.
-                  type: object
                 Fcm:
                   description: The FCM-specific payload that overrides corresponding
                     attributes in the generic payload for FCM Bindings. This property
@@ -1089,7 +1082,6 @@ paths:
                     keys that start with `twi_` are not allowed. FCM also [reserves
                     certain keys](https://firebase.google.com/docs/cloud-messaging/http-server-ref),
                     which cannot be used in that channel.
-                  type: object
                 Gcm:
                   description: The GCM-specific payload that overrides corresponding
                     attributes in the generic payload for GCM Bindings.  This property
@@ -1098,7 +1090,6 @@ paths:
                     and `notification_key` are not allowed. We reserve keys that start
                     with `twi_` for future use. Custom keys that start with `twi_`
                     are not allowed. GCM also [reserves certain keys](https://firebase.google.com/docs/cloud-messaging/http-server-ref).
-                  type: object
                 Identity:
                   description: The `identity` value that uniquely identifies the new
                     resource's [User](https://www.twilio.com/docs/chat/rest/user-resource)
@@ -1138,7 +1129,6 @@ paths:
                     and `max_price`.  The `status_callback` parameter overrides the
                     corresponding parameter in the messaging service, if configured.
                     The `media_urls` property expects a JSON array.'
-                  type: object
                 Sound:
                   description: The name of the sound to be played for the notification.
                     For FCM and GCM, this Translates to `data.twi_sound`.  For APNS,
@@ -1191,6 +1181,10 @@ paths:
       - accountSid_authToken: []
       x-maturity:
       - Beta
+      x-twilio:
+        conditional:
+        - - identity
+          - tag
     servers:
     - url: https://notify.twilio.com
     x-twilio:
@@ -1198,6 +1192,7 @@ paths:
       - sid
       - priority
       - title
+      parent: /Services
       pathType: list
   /v1/Services/{Sid}:
     delete:

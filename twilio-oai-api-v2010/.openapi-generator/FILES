@@ -27,6 +27,8 @@ src/models/api_v2010_account_call_call_notification.rs
 src/models/api_v2010_account_call_call_notification_instance.rs
 src/models/api_v2010_account_call_call_recording.rs
 src/models/api_v2010_account_call_payments.rs
+src/models/api_v2010_account_call_siprec.rs
+src/models/api_v2010_account_call_stream.rs
 src/models/api_v2010_account_conference.rs
 src/models/api_v2010_account_conference_conference_recording.rs
 src/models/api_v2010_account_conference_participant.rs
@@ -66,7 +68,7 @@ src/models/api_v2010_account_sip_sip_domain_sip_ip_access_control_list_mapping.r
 src/models/api_v2010_account_sip_sip_ip_access_control_list.rs
 src/models/api_v2010_account_sip_sip_ip_access_control_list_sip_ip_address.rs
 src/models/api_v2010_account_token.rs
-src/models/api_v2010_account_token_ice_servers.rs
+src/models/api_v2010_account_token_ice_servers_inner.rs
 src/models/api_v2010_account_transcription.rs
 src/models/api_v2010_account_usage_usage_record.rs
 src/models/api_v2010_account_usage_usage_record_usage_record_all_time.rs

@@ -34,4 +34,7 @@ members = [
   'twilio-oai-video-v1',
   'twilio-oai-voice-v1',
   'twilio-oai-wireless-v1',
+  'twilio-oai-chat-v3',
+  'twilio-oai-lookups-v2',
+  'twilio-oai-media-v1',
 ]

@@ -17,6 +17,7 @@ components:
           nullable: true
           type: string
         links:
+          format: uri-map
           nullable: true
           type: object
         schema_id:
@@ -50,6 +51,7 @@ components:
           type: string
         links:
           description: Nested resource URLs.
+          format: uri-map
           nullable: true
           type: object
         url:
@@ -101,6 +103,7 @@ components:
           type: string
         links:
           description: Nested resource URLs.
+          format: uri-map
           nullable: true
           type: object
         sid:
@@ -113,7 +116,6 @@ components:
         sink_configuration:
           description: JSON Sink configuration.
           nullable: true
-          type: object
         sink_type:
           description: Sink type.
           enum:
@@ -176,6 +178,7 @@ components:
           type: string
         links:
           description: Nested resource URLs.
+          format: uri-map
           nullable: true
           type: object
         sid:
@@ -243,7 +246,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Events
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Schemas/{Id}:
@@ -338,10 +341,12 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: schema_version
       defaultOutputProperties:
       - id
       - schema_version
       - date_created
+      parent: /Schemas
       pathType: list
   /v1/Schemas/{Id}/Versions/{SchemaVersion}:
     description: Version of the Schema
@@ -376,10 +381,12 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: schema_version
       defaultOutputProperties:
       - id
       - schema_version
       - date_created
+      parent: /Schemas
       pathType: instance
   /v1/Sinks:
     description: Sink destination to send events to
@@ -461,7 +468,6 @@ paths:
                 SinkConfiguration:
                   description: The information required for Twilio to connect to the
                     provided Sink encoded as JSON.
-                  type: object
                 SinkType:
                   description: The Sink type. Can only be "kinesis" or "webhook" currently.
                   enum:
@@ -623,8 +629,10 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: sink_test
       defaultOutputProperties:
       - result
+      parent: /Sinks
       pathType: list
   /v1/Sinks/{Sid}/Validate:
     description: Validate sink
@@ -669,8 +677,10 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: sink_validate
       defaultOutputProperties:
       - result
+      parent: /Sinks
       pathType: list
   /v1/Subscriptions:
     description: Subscription to send Event Types to a Sink
@@ -757,8 +767,7 @@ paths:
                 Types:
                   description: An array of objects containing the subscribed Event
                     Types
-                  items:
-                    type: object
+                  items: {}
                   type: array
               required:
               - Description
@@ -993,6 +1002,7 @@ paths:
       - schema_version
       - account_sid
       - subscription_sid
+      parent: /Subscriptions
       pathType: list
   /v1/Subscriptions/{SubscriptionSid}/SubscribedEvents/{Type}:
     delete:
@@ -1100,6 +1110,7 @@ paths:
       - schema_version
       - account_sid
       - subscription_sid
+      parent: /Subscriptions
       pathType: instance
   /v1/Types:
     description: Event Types available
@@ -1162,6 +1173,7 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: event_type
       defaultOutputProperties:
       - type
       - schema_id
@@ -1193,6 +1205,7 @@ paths:
     servers:
     - url: https://events.twilio.com
     x-twilio:
+      className: event_type
       defaultOutputProperties:
       - type
       - schema_id

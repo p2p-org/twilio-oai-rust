@@ -157,7 +157,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Accounts
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/AuthTokens/Promote:
@@ -181,6 +181,7 @@ paths:
     servers:
     - url: https://accounts.twilio.com
     x-twilio:
+      className: auth_token_promotion
       defaultOutputProperties:
       - account_sid
       - auth_token
@@ -215,11 +216,19 @@ paths:
     servers:
     - url: https://accounts.twilio.com
     x-twilio:
+      className: secondary_auth_token
       defaultOutputProperties:
       - account_sid
       - secondary_auth_token
       - date_created
       pathType: instance
+  /v1/Credentials:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://accounts.twilio.com
+    x-twilio:
+      defaultOutputProperties: []
+      pathType: list
   /v1/Credentials/AWS:
     description: User provided AWS keys
     get:
@@ -320,6 +329,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Credentials
       pathType: list
   /v1/Credentials/AWS/{Sid}:
     delete:
@@ -413,6 +423,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Credentials
       pathType: instance
   /v1/Credentials/PublicKeys:
     description: User provided public keys
@@ -514,6 +525,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Credentials
       pathType: list
   /v1/Credentials/PublicKeys/{Sid}:
     delete:
@@ -606,6 +618,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Credentials
       pathType: instance
 servers:
 - url: https://accounts.twilio.com

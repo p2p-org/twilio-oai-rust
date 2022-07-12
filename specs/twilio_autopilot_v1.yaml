@@ -46,6 +46,7 @@ components:
           type: string
         links:
           description: A list of the URLs of the Assistant's related resources
+          format: uri-map
           nullable: true
           type: object
         log_queries:
@@ -93,7 +94,6 @@ components:
         data:
           description: The JSON string that describes the default task links
           nullable: true
-          type: object
         url:
           description: The absolute URL of the Defaults resource
           format: uri
@@ -119,7 +119,6 @@ components:
         data:
           description: The JSON string that describes the dialogue session object
           nullable: true
-          type: object
         sid:
           description: The unique string that identifies the resource
           maxLength: 34
@@ -166,6 +165,7 @@ components:
           type: string
         links:
           description: A list of the URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         sid:
@@ -369,7 +369,6 @@ components:
           description: The natural language analysis results that include the Task
             recognized and a list of identified Fields
           nullable: true
-          type: object
         sample_sid:
           description: The SID of an optional reference to the Sample created from
             the query
@@ -418,7 +417,6 @@ components:
         data:
           description: The JSON string that describes the style sheet object
           nullable: true
-          type: object
         url:
           description: The absolute URL of the StyleSheet resource
           format: uri
@@ -463,6 +461,7 @@ components:
           type: string
         links:
           description: A list of the URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         sid:
@@ -623,7 +622,6 @@ components:
           description: The JSON string that specifies the actions that instruct the
             Assistant on how to perform the task
           nullable: true
-          type: object
         task_sid:
           description: The SID of the Task associated with the resource
           maxLength: 34
@@ -814,7 +812,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Autopilot
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Assistants:
@@ -889,7 +887,6 @@ paths:
                     tasks](https://www.twilio.com/docs/autopilot/api/assistant/defaults)
                     for various scenarios, including initiation actions and fallback
                     tasks.
-                  type: object
                 FriendlyName:
                   description: A descriptive string that you create to describe the
                     new resource. It is not unique and can be up to 255 characters
@@ -904,7 +901,6 @@ paths:
                 StyleSheet:
                   description: The JSON string that defines the Assistant's [style
                     sheet](https://www.twilio.com/docs/autopilot/api/assistant/stylesheet)
-                  type: object
                 UniqueName:
                   description: An application-defined string that uniquely identifies
                     the new resource. It can be used as an alternative to the `sid`
@@ -964,6 +960,7 @@ paths:
     servers:
     - url: https://autopilot.twilio.com
     x-twilio:
+      className: restore_assistant
       defaultOutputProperties:
       - account_sid
       - sid
@@ -1013,7 +1010,6 @@ paths:
                 Defaults:
                   description: A JSON string that describes the default task links
                     for the `assistant_initiation`, `collect`, and `fallback` situations.
-                  type: object
               title: UpdateDefaultsRequest
               type: object
       responses:
@@ -1030,8 +1026,10 @@ paths:
     servers:
     - url: https://autopilot.twilio.com
     x-twilio:
+      className: defaults
       defaultOutputProperties:
       - data
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/Dialogues/{Sid}:
     description: 'TODO: Resource-level docs'
@@ -1070,6 +1068,7 @@ paths:
       defaultOutputProperties:
       - sid
       - data
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/FieldTypes:
     description: 'TODO: Resource-level docs'
@@ -1179,6 +1178,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Assistants
       pathType: list
   /v1/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues:
     description: 'TODO: Resource-level docs'
@@ -1310,6 +1310,7 @@ paths:
       - sid
       - value
       - language
+      parent: /Assistants/{AssistantSid}/FieldTypes
       pathType: list
   /v1/Assistants/{AssistantSid}/FieldTypes/{FieldTypeSid}/FieldValues/{Sid}:
     delete:
@@ -1388,6 +1389,7 @@ paths:
       - sid
       - value
       - language
+      parent: /Assistants/{AssistantSid}/FieldTypes
       pathType: instance
   /v1/Assistants/{AssistantSid}/FieldTypes/{Sid}:
     delete:
@@ -1498,6 +1500,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/ModelBuilds:
     description: 'TODO: Resource-level docs'
@@ -1606,6 +1609,7 @@ paths:
       - unique_name
       - status
       - date_created
+      parent: /Assistants
       pathType: list
   /v1/Assistants/{AssistantSid}/ModelBuilds/{Sid}:
     delete:
@@ -1713,6 +1717,7 @@ paths:
       - unique_name
       - status
       - date_created
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/Queries:
     description: 'TODO: Resource-level docs'
@@ -1860,6 +1865,7 @@ paths:
       - query
       - status
       - language
+      parent: /Assistants
       pathType: list
   /v1/Assistants/{AssistantSid}/Queries/{Sid}:
     delete:
@@ -1972,6 +1978,7 @@ paths:
       - query
       - status
       - language
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/StyleSheet:
     description: 'TODO: Resource-level docs'
@@ -2015,7 +2022,6 @@ paths:
               properties:
                 StyleSheet:
                   description: The JSON string that describes the style sheet object.
-                  type: object
               title: UpdateStyleSheetRequest
               type: object
       responses:
@@ -2034,6 +2040,7 @@ paths:
     x-twilio:
       defaultOutputProperties:
       - data
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/Tasks:
     description: 'TODO: Resource-level docs'
@@ -2114,7 +2121,6 @@ paths:
                   description: The JSON string that specifies the [actions](https://www.twilio.com/docs/autopilot/actions)
                     that instruct the Assistant on how to perform the task. It is
                     optional and not unique.
-                  type: object
                 ActionsUrl:
                   description: The URL from which the Assistant can fetch actions.
                   format: uri
@@ -2152,6 +2158,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Assistants
       pathType: list
   /v1/Assistants/{AssistantSid}/Tasks/{Sid}:
     delete:
@@ -2235,7 +2242,6 @@ paths:
                 Actions:
                   description: The JSON string that specifies the [actions](https://www.twilio.com/docs/autopilot/actions)
                     that instruct the Assistant on how to perform the task.
-                  type: object
                 ActionsUrl:
                   description: The URL from which the Assistant can fetch actions.
                   format: uri
@@ -2270,6 +2276,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Actions:
     description: 'TODO: Resource-level docs'
@@ -2330,7 +2337,6 @@ paths:
                 Actions:
                   description: The JSON string that specifies the [actions](https://www.twilio.com/docs/autopilot/actions)
                     that instruct the Assistant on how to perform the task.
-                  type: object
               title: UpdateTaskActionsRequest
               type: object
       responses:
@@ -2347,8 +2353,10 @@ paths:
     servers:
     - url: https://autopilot.twilio.com
     x-twilio:
+      className: task_actions
       defaultOutputProperties:
       - data
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: instance
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields:
     description: 'TODO: Resource-level docs'
@@ -2473,6 +2481,7 @@ paths:
       - sid
       - unique_name
       - field_type
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: list
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Fields/{Sid}:
     delete:
@@ -2551,6 +2560,7 @@ paths:
       - sid
       - unique_name
       - field_type
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: instance
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples:
     description: 'TODO: Resource-level docs'
@@ -2685,6 +2695,7 @@ paths:
       - tagged_text
       - language
       - source_channel
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: list
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Samples/{Sid}:
     delete:
@@ -2830,6 +2841,7 @@ paths:
       - tagged_text
       - language
       - source_channel
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: instance
   /v1/Assistants/{AssistantSid}/Tasks/{TaskSid}/Statistics:
     description: 'TODO: Resource-level docs'
@@ -2865,9 +2877,11 @@ paths:
     servers:
     - url: https://autopilot.twilio.com
     x-twilio:
+      className: task_statistics
       defaultOutputProperties:
       - samples_count
       - fields_count
+      parent: /Assistants/{AssistantSid}/Tasks
       pathType: instance
   /v1/Assistants/{AssistantSid}/Webhooks:
     description: 'TODO: Resource-level docs'
@@ -2987,6 +3001,7 @@ paths:
       - events
       - wehbook_url
       - webhook_method
+      parent: /Assistants
       pathType: list
   /v1/Assistants/{AssistantSid}/Webhooks/{Sid}:
     delete:
@@ -3106,6 +3121,7 @@ paths:
       - events
       - wehbook_url
       - webhook_method
+      parent: /Assistants
       pathType: instance
   /v1/Assistants/{Sid}:
     delete:
@@ -3177,7 +3193,6 @@ paths:
                     tasks](https://www.twilio.com/docs/autopilot/api/assistant/defaults)
                     for various scenarios, including initiation actions and fallback
                     tasks.
-                  type: object
                 DevelopmentStage:
                   description: A string describing the state of the assistant.
                   type: string
@@ -3194,7 +3209,6 @@ paths:
                 StyleSheet:
                   description: The JSON string that defines the Assistant's [style
                     sheet](https://www.twilio.com/docs/autopilot/api/assistant/stylesheet)
-                  type: object
                 UniqueName:
                   description: An application-defined string that uniquely identifies
                     the resource. It can be used as an alternative to the `sid` in

@@ -26,4 +26,4 @@ src/models/video_v1_room_room_participant_room_participant_subscribe_rule.rs
 src/models/video_v1_room_room_participant_room_participant_subscribed_track.rs
 src/models/video_v1_room_room_recording.rs
 src/models/video_v1_room_room_recording_rule.rs
-src/models/video_v1_room_room_recording_rule_rules.rs
+src/models/video_v1_room_room_recording_rule_rules_inner.rs

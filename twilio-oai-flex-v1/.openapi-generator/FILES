@@ -7,9 +7,16 @@ src/lib.rs
 src/models/flex_v1_channel.rs
 src/models/flex_v1_configuration.rs
 src/models/flex_v1_flex_flow.rs
+src/models/flex_v1_interaction.rs
+src/models/flex_v1_interaction_interaction_channel.rs
+src/models/flex_v1_interaction_interaction_channel_interaction_channel_invite.rs
+src/models/flex_v1_interaction_interaction_channel_interaction_channel_participant.rs
 src/models/flex_v1_web_channel.rs
 src/models/list_channel_response.rs
 src/models/list_channel_response_meta.rs
 src/models/list_flex_flow_response.rs
+src/models/list_interaction_channel_invite_response.rs
+src/models/list_interaction_channel_participant_response.rs
+src/models/list_interaction_channel_response.rs
 src/models/list_web_channel_response.rs
 src/models/mod.rs

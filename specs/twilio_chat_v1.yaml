@@ -104,15 +104,14 @@ components:
         limits:
           description: An object that describes the limits of the service instance
           nullable: true
-          type: object
         links:
           description: The absolute URLs of the Service's Channels, Roles, and Users
+          format: uri-map
           nullable: true
           type: object
         notifications:
           description: The notification configuration for the Service instance
           nullable: true
-          type: object
         post_webhook_url:
           description: The URL for post-event webhooks
           nullable: true
@@ -162,7 +161,6 @@ components:
           description: An object that contains information about the webhooks configured
             for this service
           nullable: true
-          type: object
       type: object
     chat.v1.service.channel:
       properties:
@@ -199,6 +197,7 @@ components:
         links:
           description: Absolute URLs to access the Members, Messages , Invites and,
             if it exists, the last Message for the Channel
+          format: uri-map
           nullable: true
           type: object
         members_count:
@@ -552,6 +551,7 @@ components:
         links:
           description: The absolute URLs of the Channel and Binding resources related
             to the user
+          format: uri-map
           nullable: true
           type: object
         role_sid:
@@ -605,6 +605,7 @@ components:
         links:
           description: Absolute URLs to access the Members, Messages , Invites and,
             if it exists, the last Message for the Channel
+          format: uri-map
           nullable: true
           type: object
         member_sid:
@@ -649,7 +650,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Chat
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Credentials:
@@ -1117,6 +1118,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Services
       pathType: list
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites:
     description: Pending invitations to users to become channel members
@@ -1258,6 +1260,7 @@ paths:
       - sid
       - identity
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: list
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Invites/{Sid}:
     delete:
@@ -1348,6 +1351,7 @@ paths:
       - sid
       - identity
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: instance
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members:
     description: Users joined to specific channels
@@ -1491,6 +1495,7 @@ paths:
       - sid
       - identity
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: list
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Members/{Sid}:
     delete:
@@ -1645,6 +1650,7 @@ paths:
       - sid
       - identity
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: instance
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages:
     description: Individual chat messages
@@ -1793,6 +1799,7 @@ paths:
       - from
       - to
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: list
   /v1/Services/{ServiceSid}/Channels/{ChannelSid}/Messages/{Sid}:
     delete:
@@ -1953,6 +1960,7 @@ paths:
       - from
       - to
       - date_created
+      parent: /Services/{ServiceSid}/Channels
       pathType: instance
   /v1/Services/{ServiceSid}/Channels/{Sid}:
     delete:
@@ -2076,6 +2084,7 @@ paths:
       - sid
       - unique_name
       - friendly_name
+      parent: /Services
       pathType: instance
   /v1/Services/{ServiceSid}/Roles:
     description: Roles determining user or member permissions
@@ -2203,6 +2212,7 @@ paths:
       - sid
       - friendly_name
       - type
+      parent: /Services
       pathType: list
   /v1/Services/{ServiceSid}/Roles/{Sid}:
     delete:
@@ -2332,6 +2342,7 @@ paths:
       - sid
       - friendly_name
       - type
+      parent: /Services
       pathType: instance
   /v1/Services/{ServiceSid}/Users:
     description: Unique chat users within a chat service
@@ -2458,6 +2469,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Services
       pathType: list
   /v1/Services/{ServiceSid}/Users/{Sid}:
     delete:
@@ -2582,6 +2594,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Services
       pathType: instance
   /v1/Services/{ServiceSid}/Users/{UserSid}/Channels:
     description: 'TODO: Resource-level docs'
@@ -2655,9 +2668,11 @@ paths:
     servers:
     - url: https://chat.twilio.com
     x-twilio:
+      className: user_channel
       defaultOutputProperties:
       - channel_sid
       - status
+      parent: /Services/{ServiceSid}/Users
       pathType: list
   /v1/Services/{Sid}:
     delete:
@@ -2848,6 +2863,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelAdd.Method:
                   description: The HTTP method to use when calling the `webhooks.on_channel_add.url`.
@@ -2858,6 +2874,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelAdd.Url:
                   description: The URL of the webhook to call in response to the `on_channel_add`
@@ -2874,6 +2891,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelAdded.Url:
                   description: The URL of the webhook to call in response to the `on_channel_added`
@@ -2889,6 +2907,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelDestroy.Url:
                   description: The URL of the webhook to call in response to the `on_channel_destroy`
@@ -2904,6 +2923,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelDestroyed.Url:
                   description: The URL of the webhook to call in response to the `on_channel_added`
@@ -2919,6 +2939,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelUpdate.Url:
                   description: The URL of the webhook to call in response to the `on_channel_update`
@@ -2934,6 +2955,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnChannelUpdated.Url:
                   description: The URL of the webhook to call in response to the `on_channel_updated`
@@ -2949,6 +2971,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMemberAdd.Url:
                   description: The URL of the webhook to call in response to the `on_member_add`
@@ -2964,6 +2987,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMemberAdded.Url:
                   description: The URL of the webhook to call in response to the `on_channel_updated`
@@ -2979,6 +3003,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMemberRemove.Url:
                   description: The URL of the webhook to call in response to the `on_member_remove`
@@ -2994,6 +3019,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMemberRemoved.Url:
                   description: The URL of the webhook to call in response to the `on_member_removed`
@@ -3009,6 +3035,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageRemove.Url:
                   description: The URL of the webhook to call in response to the `on_message_remove`
@@ -3024,6 +3051,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageRemoved.Url:
                   description: The URL of the webhook to call in response to the `on_message_removed`
@@ -3039,6 +3067,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageSend.Url:
                   description: The URL of the webhook to call in response to the `on_message_send`
@@ -3055,6 +3084,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageSent.Url:
                   description: The URL of the webhook to call in response to the `on_message_sent`
@@ -3070,6 +3100,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageUpdate.Url:
                   description: The URL of the webhook to call in response to the `on_message_update`
@@ -3085,6 +3116,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Webhooks.OnMessageUpdated.Url:
                   description: The URL of the webhook to call in response to the `on_message_updated`

@@ -31,4 +31,5 @@ src/models/verify_v2_service_verification.rs
 src/models/verify_v2_service_verification_check.rs
 src/models/verify_v2_service_webhook.rs
 src/models/verify_v2_verification_attempt.rs
+src/models/verify_v2_verification_attempts_summary.rs
 src/models/verify_v2_verification_template.rs

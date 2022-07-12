@@ -37,6 +37,7 @@ components:
           type: string
         links:
           description: Absolute URLs to access the webhook and default service configurations.
+          format: uri-map
           nullable: true
           type: object
         url:
@@ -91,6 +92,53 @@ components:
           nullable: true
           type: string
       type: object
+    conversations.v1.configuration_address:
+      properties:
+        account_sid:
+          description: The unique ID of the Account the address belongs to.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+        address:
+          description: The unique address to be configured.
+          nullable: true
+          type: string
+        auto_creation:
+          description: Auto Creation configuration for the address.
+          nullable: true
+        date_created:
+          description: The date that this resource was created.
+          format: date-time
+          nullable: true
+          type: string
+        date_updated:
+          description: The date that this resource was last updated.
+          format: date-time
+          nullable: true
+          type: string
+        friendly_name:
+          description: The human-readable name of this configuration.
+          nullable: true
+          type: string
+        sid:
+          description: A 34 character string that uniquely identifies this resource.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^IG[0-9a-fA-F]{32}$
+          type: string
+        type:
+          description: Type of Address.
+          nullable: true
+          type: string
+        url:
+          description: An absolute URL for this address configuration.
+          format: uri
+          nullable: true
+          type: string
+      type: object
     conversations.v1.conversation:
       properties:
         account_sid:
@@ -107,7 +155,6 @@ components:
           type: string
         bindings:
           nullable: true
-          type: object
         chat_service_sid:
           description: The unique ID of the Conversation Service this conversation
             belongs to.
@@ -133,6 +180,7 @@ components:
         links:
           description: Absolute URLs to access the participants, messages and webhooks
             of this conversation.
+          format: uri-map
           nullable: true
           type: object
         messaging_service_sid:
@@ -161,7 +209,6 @@ components:
         timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         unique_name:
           description: An application-defined string that uniquely identifies the
             resource
@@ -215,20 +262,19 @@ components:
           description: An object that contains the summary of delivery statuses for
             the message to non-chat participants.
           nullable: true
-          type: object
         index:
           description: The index of the message within the Conversation.
           nullable: true
           type: integer
         links:
           description: Absolute URL to access the receipts of this message.
+          format: uri-map
           nullable: true
           type: object
         media:
           description: An array of objects that describe the Message's media if attached,
             otherwise, null.
-          items:
-            type: object
+          items: {}
           nullable: true
           type: array
         participant_sid:
@@ -378,7 +424,6 @@ components:
           description: Information about how this participant exchanges messages with
             the conversation.
           nullable: true
-          type: object
         role_sid:
           description: The SID of a conversation-level Role to assign to the participant
           maxLength: 34
@@ -411,7 +456,6 @@ components:
         configuration:
           description: The configuration of this webhook.
           nullable: true
-          type: object
         conversation_sid:
           description: The unique ID of the Conversation for this webhook.
           maxLength: 34
@@ -553,7 +597,6 @@ components:
         conversation_timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         conversation_unique_name:
           description: An application-defined string that uniquely identifies the
             Conversation resource
@@ -562,6 +605,7 @@ components:
         links:
           description: Absolute URLs to access the participant and conversation of
             this Participant Conversation.
+          format: uri-map
           nullable: true
           type: object
         participant_identity:
@@ -573,7 +617,6 @@ components:
           description: Information about how this participant exchanges messages with
             the conversation.
           nullable: true
-          type: object
         participant_sid:
           description: The unique ID of the Participant.
           maxLength: 34
@@ -674,6 +717,7 @@ components:
         links:
           description: Absolute URLs to access the conversations, users, roles, bindings
             and configuration of this service.
+          format: uri-map
           nullable: true
           type: object
         sid:
@@ -793,6 +837,7 @@ components:
         links:
           description: Absolute URL to access the push notifications configuration
             of this service.
+          format: uri-map
           nullable: true
           type: object
         reachability_enabled:
@@ -818,7 +863,6 @@ components:
         added_to_conversation:
           description: The Push Notification configuration for being added to a Conversation.
           nullable: true
-          type: object
         chat_service_sid:
           description: The SID of the Conversation Service that the Configuration
             applies to.
@@ -834,14 +878,61 @@ components:
         new_message:
           description: The Push Notification configuration for New Messages.
           nullable: true
-          type: object
         removed_from_conversation:
           description: The Push Notification configuration for being removed from
             a Conversation.
           nullable: true
-          type: object
         url:
           description: An absolute URL for this configuration.
+          format: uri
+          nullable: true
+          type: string
+      type: object
+    conversations.v1.service.service_configuration.service_webhook_configuration:
+      properties:
+        account_sid:
+          description: The unique ID of the Account responsible for this service.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+        chat_service_sid:
+          description: The unique ID of the [Conversation Service](https://www.twilio.com/docs/conversations/api/service-resource)
+            this conversation belongs to.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^IS[0-9a-fA-F]{32}$
+          type: string
+        filters:
+          description: The list of events that your configured webhook targets will
+            receive. Events not configured here will not fire.
+          items:
+            type: string
+          nullable: true
+          type: array
+        method:
+          description: The HTTP method to be used when sending a webhook request
+          enum:
+          - GET
+          - POST
+          nullable: true
+          type: string
+        post_webhook_url:
+          description: The absolute url the post-event webhook request should be sent
+            to.
+          format: uri
+          nullable: true
+          type: string
+        pre_webhook_url:
+          description: The absolute url the pre-event webhook request should be sent
+            to.
+          format: uri
+          nullable: true
+          type: string
+        url:
+          description: An absolute URL for this webhook.
           format: uri
           nullable: true
           type: string
@@ -862,7 +953,6 @@ components:
           type: string
         bindings:
           nullable: true
-          type: object
         chat_service_sid:
           description: The unique ID of the Conversation Service this conversation
             belongs to.
@@ -888,6 +978,7 @@ components:
         links:
           description: Absolute URLs to access the participants, messages and webhooks
             of this conversation.
+          format: uri-map
           nullable: true
           type: object
         messaging_service_sid:
@@ -916,7 +1007,6 @@ components:
         timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         unique_name:
           description: An application-defined string that uniquely identifies the
             resource
@@ -978,20 +1068,19 @@ components:
           description: An object that contains the summary of delivery statuses for
             the message to non-chat participants.
           nullable: true
-          type: object
         index:
           description: The index of the message within the Conversation.
           nullable: true
           type: integer
         links:
           description: Absolute URL to access the receipts of this message.
+          format: uri-map
           nullable: true
           type: object
         media:
           description: An array of objects that describe the Message's media if attached,
             otherwise, null.
-          items:
-            type: object
+          items: {}
           nullable: true
           type: array
         participant_sid:
@@ -1157,7 +1246,6 @@ components:
           description: Information about how this participant exchanges messages with
             the conversation.
           nullable: true
-          type: object
         role_sid:
           description: The SID of a conversation-level Role to assign to the participant
           maxLength: 34
@@ -1198,7 +1286,6 @@ components:
         configuration:
           description: The configuration of this webhook.
           nullable: true
-          type: object
         conversation_sid:
           description: The unique ID of the Conversation for this webhook.
           maxLength: 34
@@ -1292,7 +1379,6 @@ components:
         conversation_timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         conversation_unique_name:
           description: An application-defined string that uniquely identifies the
             Conversation resource.
@@ -1301,6 +1387,7 @@ components:
         links:
           description: Absolute URLs to access the participant and conversation of
             this Participant Conversation.
+          format: uri-map
           nullable: true
           type: object
         participant_identity:
@@ -1312,7 +1399,6 @@ components:
           description: Information about how this participant exchanges messages with
             the conversation.
           nullable: true
-          type: object
         participant_sid:
           description: The unique ID of the Participant.
           maxLength: 34
@@ -1438,6 +1524,7 @@ components:
           nullable: true
           type: boolean
         links:
+          format: uri-map
           nullable: true
           type: object
         role_sid:
@@ -1522,6 +1609,7 @@ components:
         links:
           description: Absolute URLs to access the participant and conversation of
             this user conversation.
+          format: uri-map
           nullable: true
           type: object
         notification_level:
@@ -1541,7 +1629,6 @@ components:
         timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         unique_name:
           description: An application-defined string that uniquely identifies the
             Conversation resource.
@@ -1614,6 +1701,7 @@ components:
           nullable: true
           type: boolean
         links:
+          format: uri-map
           nullable: true
           type: object
         role_sid:
@@ -1698,6 +1786,7 @@ components:
         links:
           description: Absolute URLs to access the participant and conversation of
             this user conversation.
+          format: uri-map
           nullable: true
           type: object
         notification_level:
@@ -1717,7 +1806,6 @@ components:
         timers:
           description: Timer date values for this conversation.
           nullable: true
-          type: object
         unique_name:
           description: An application-defined string that uniquely identifies the
             Conversation resource.
@@ -1754,7 +1842,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Conversations
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Configuration:
@@ -1827,6 +1915,299 @@ paths:
       - default_chat_service_sid
       - default_messaging_service_sid
       pathType: instance
+  /v1/Configuration/Addresses:
+    description: Address Configuration resource manages the configurations related
+      to a unique address within Conversations
+    get:
+      description: Retrieve a list of address configurations for an account
+      operationId: ListConfigurationAddress
+      parameters:
+      - description: 'Filter the address configurations by its type. This value can
+          be one of: `whatsapp`, `sms`.'
+        in: query
+        name: Type
+        schema:
+          type: string
+      - description: How many resources to return in each list page. The default is
+          50, and the maximum is 1000.
+        in: query
+        name: PageSize
+        schema:
+          maximum: 1000
+          minimum: 1
+          type: integer
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  address_configurations:
+                    items:
+                      $ref: '#/components/schemas/conversations.v1.configuration_address'
+                    type: array
+                  meta:
+                    properties:
+                      first_page_url:
+                        format: uri
+                        type: string
+                      key:
+                        type: string
+                      next_page_url:
+                        format: uri
+                        type: string
+                      page:
+                        type: integer
+                      page_size:
+                        type: integer
+                      previous_page_url:
+                        format: uri
+                        type: string
+                      url:
+                        format: uri
+                        type: string
+                    type: object
+                title: ListConfigurationAddressResponse
+                type: object
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    post:
+      description: Create a new address configuration
+      operationId: CreateConfigurationAddress
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                Address:
+                  description: The unique address to be configured. The address can
+                    be a whatsapp address or phone number
+                  type: string
+                AutoCreation.ConversationServiceSid:
+                  description: Conversation Service for the auto-created conversation.
+                    If not set, the conversation is created in the default service.
+                  maxLength: 34
+                  minLength: 34
+                  pattern: ^IS[0-9a-fA-F]{32}$
+                  type: string
+                AutoCreation.Enabled:
+                  description: Enable/Disable auto-creating conversations for messages
+                    to this address
+                  type: boolean
+                AutoCreation.StudioFlowSid:
+                  description: For type `studio`, the studio flow SID where the webhook
+                    should be sent to.
+                  maxLength: 34
+                  minLength: 34
+                  pattern: ^FW[0-9a-fA-F]{32}$
+                  type: string
+                AutoCreation.StudioRetryCount:
+                  description: For type `studio`, number of times to retry the webhook
+                    request
+                  type: integer
+                AutoCreation.Type:
+                  description: Type of Auto Creation. Value can be one of `webhook`,
+                    `studio` or `default`.
+                  enum:
+                  - webhook
+                  - studio
+                  - default
+                  type: string
+                AutoCreation.WebhookFilters:
+                  description: 'The list of events, firing webhook event for this
+                    Conversation. Values can be any of the following: `onMessageAdded`,
+                    `onMessageUpdated`, `onMessageRemoved`, `onConversationUpdated`,
+                    `onConversationStateUpdated`, `onConversationRemoved`, `onParticipantAdded`,
+                    `onParticipantUpdated`, `onParticipantRemoved`, `onDeliveryUpdated`'
+                  items:
+                    type: string
+                  type: array
+                AutoCreation.WebhookMethod:
+                  description: For type `webhook`, the HTTP method to be used when
+                    sending a webhook request.
+                  enum:
+                  - GET
+                  - POST
+                  type: string
+                AutoCreation.WebhookUrl:
+                  description: For type `webhook`, the url for the webhook request.
+                  type: string
+                FriendlyName:
+                  description: The human-readable name of this configuration, limited
+                    to 256 characters. Optional.
+                  type: string
+                Type:
+                  description: Type of Address. Value can be `whatsapp` or `sms`.
+                  enum:
+                  - sms
+                  - whatsapp
+                  - messenger
+                  - gbm
+                  type: string
+              required:
+              - Type
+              - Address
+              title: CreateConfigurationAddressRequest
+              type: object
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversations.v1.configuration_address'
+          description: Created
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://conversations.twilio.com
+    x-twilio:
+      className: address_configuration
+      defaultOutputProperties:
+      - sid
+      - type
+      - address
+      - friendly_name
+      pathType: list
+  /v1/Configuration/Addresses/{Sid}:
+    delete:
+      description: Remove an existing address configuration
+      operationId: DeleteConfigurationAddress
+      parameters:
+      - description: The SID of the Address Configuration resource. This value can
+          be either the `sid` or the `address` of the configuration
+        in: path
+        name: Sid
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: The resource was deleted successfully.
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    description: Address Configuration resource manages the configurations related
+      to a unique address within Conversations
+    get:
+      description: 'Fetch an address configuration '
+      operationId: FetchConfigurationAddress
+      parameters:
+      - description: The SID of the Address Configuration resource. This value can
+          be either the `sid` or the `address` of the configuration
+        in: path
+        name: Sid
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversations.v1.configuration_address'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    post:
+      description: Update an existing address configuration
+      operationId: UpdateConfigurationAddress
+      parameters:
+      - description: The SID of the Address Configuration resource. This value can
+          be either the `sid` or the `address` of the configuration
+        in: path
+        name: Sid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                AutoCreation.ConversationServiceSid:
+                  description: Conversation Service for the auto-created conversation.
+                    If not set, the conversation is created in the default service.
+                  maxLength: 34
+                  minLength: 34
+                  pattern: ^IS[0-9a-fA-F]{32}$
+                  type: string
+                AutoCreation.Enabled:
+                  description: Enable/Disable auto-creating conversations for messages
+                    to this address
+                  type: boolean
+                AutoCreation.StudioFlowSid:
+                  description: For type `studio`, the studio flow SID where the webhook
+                    should be sent to.
+                  maxLength: 34
+                  minLength: 34
+                  pattern: ^FW[0-9a-fA-F]{32}$
+                  type: string
+                AutoCreation.StudioRetryCount:
+                  description: For type `studio`, number of times to retry the webhook
+                    request
+                  type: integer
+                AutoCreation.Type:
+                  description: Type of Auto Creation. Value can be one of `webhook`,
+                    `studio` or `default`.
+                  enum:
+                  - webhook
+                  - studio
+                  - default
+                  type: string
+                AutoCreation.WebhookFilters:
+                  description: 'The list of events, firing webhook event for this
+                    Conversation. Values can be any of the following: `onMessageAdded`,
+                    `onMessageUpdated`, `onMessageRemoved`, `onConversationUpdated`,
+                    `onConversationStateUpdated`, `onConversationRemoved`, `onParticipantAdded`,
+                    `onParticipantUpdated`, `onParticipantRemoved`, `onDeliveryUpdated`'
+                  items:
+                    type: string
+                  type: array
+                AutoCreation.WebhookMethod:
+                  description: For type `webhook`, the HTTP method to be used when
+                    sending a webhook request.
+                  enum:
+                  - GET
+                  - POST
+                  type: string
+                AutoCreation.WebhookUrl:
+                  description: For type `webhook`, the url for the webhook request.
+                  type: string
+                FriendlyName:
+                  description: The human-readable name of this configuration, limited
+                    to 256 characters. Optional.
+                  type: string
+              title: UpdateConfigurationAddressRequest
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversations.v1.configuration_address'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://conversations.twilio.com
+    x-twilio:
+      className: address_configuration
+      defaultOutputProperties:
+      - sid
+      - type
+      - address
+      - friendly_name
+      pathType: instance
   /v1/Configuration/Webhooks:
     description: A Webhook resource manages a service-level set of callback URLs and
       their configuration for receiving all conversation events.
@@ -1898,6 +2279,7 @@ paths:
       - method
       - pre_webhook_url
       - post_webhook_url
+      parent: /Configuration
       pathType: instance
   /v1/Conversations:
     description: A Conversation resource represents an omnichannel group conversation
@@ -2179,6 +2561,7 @@ paths:
       - index
       - author
       - date_created
+      parent: /Conversations
       pathType: list
   /v1/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts:
     description: A Message Receipt resource represents a delivery/read receipt of
@@ -2254,11 +2637,13 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: delivery_receipt
       defaultOutputProperties:
       - sid
       - message_sid
       - status
       - date_created
+      parent: /Conversations/{ConversationSid}/Messages
       pathType: list
   /v1/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts/{Sid}:
     description: A Message Receipt resource represents a delivery/read receipt of
@@ -2307,11 +2692,13 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: delivery_receipt
       defaultOutputProperties:
       - sid
       - message_sid
       - status
       - date_created
+      parent: /Conversations/{ConversationSid}/Messages
       pathType: instance
   /v1/Conversations/{ConversationSid}/Messages/{Sid}:
     delete:
@@ -2458,6 +2845,7 @@ paths:
       - index
       - author
       - date_created
+      parent: /Conversations
       pathType: instance
   /v1/Conversations/{ConversationSid}/Participants:
     description: A Participant resource represents a member of the conversation.
@@ -2606,6 +2994,7 @@ paths:
       defaultOutputProperties:
       - sid
       - messaging_binding
+      parent: /Conversations
       pathType: list
   /v1/Conversations/{ConversationSid}/Participants/{Sid}:
     delete:
@@ -2772,6 +3161,7 @@ paths:
       defaultOutputProperties:
       - sid
       - messaging_binding
+      parent: /Conversations
       pathType: instance
   /v1/Conversations/{ConversationSid}/Webhooks:
     description: A Scoped Webhook resource manages a set of callback URLs and their
@@ -2909,6 +3299,7 @@ paths:
       defaultOutputProperties:
       - sid
       - target
+      parent: /Conversations
       pathType: list
   /v1/Conversations/{ConversationSid}/Webhooks/{Sid}:
     delete:
@@ -3043,6 +3434,7 @@ paths:
       defaultOutputProperties:
       - sid
       - target
+      parent: /Conversations
       pathType: instance
   /v1/Conversations/{Sid}:
     delete:
@@ -3899,6 +4291,7 @@ paths:
       - sid
       - endpoint
       - identity
+      parent: /Services
       pathType: list
   /v1/Services/{ChatServiceSid}/Bindings/{Sid}:
     delete:
@@ -3974,6 +4367,7 @@ paths:
       - sid
       - endpoint
       - identity
+      parent: /Services
       pathType: instance
   /v1/Services/{ChatServiceSid}/Configuration:
     description: A Service Configuration resource manages service-level settings applicable
@@ -4067,6 +4461,7 @@ paths:
     x-twilio:
       defaultOutputProperties:
       - chat_service_sid
+      parent: /Services
       pathType: instance
   /v1/Services/{ChatServiceSid}/Configuration/Notifications:
     description: A Service Notification resource manages a set of settings to determine
@@ -4149,6 +4544,16 @@ paths:
                     displayed when a new message is added to a conversation and `new_message.enabled`
                     is `true`.
                   type: string
+                NewMessage.WithMedia.Enabled:
+                  description: Whether to send a notification when a new message with
+                    media/file attachments is added to a conversation. The default
+                    is `false`.
+                  type: boolean
+                NewMessage.WithMedia.Template:
+                  description: The template to use to create the notification text
+                    displayed when a new message with media/file attachments is added
+                    to a conversation and `new_message.attachments.enabled` is `true`.
+                  type: string
                 RemovedFromConversation.Enabled:
                   description: Whether to send a notification to a user when they
                     are removed from a conversation. The default is `false`.
@@ -4181,6 +4586,102 @@ paths:
     x-twilio:
       defaultOutputProperties:
       - chat_service_sid
+      parent: /Services/{ChatServiceSid}/Configuration
+      pathType: instance
+  /v1/Services/{ChatServiceSid}/Configuration/Webhooks:
+    description: A service webhook configuration resource manages a service-level
+      set of callback URLs and their configuration for receiving all the corresponding
+      service events.
+    get:
+      description: Fetch a specific service webhook configuration.
+      operationId: FetchServiceWebhookConfiguration
+      parameters:
+      - description: The unique ID of the [Conversation Service](https://www.twilio.com/docs/conversations/api/service-resource)
+          this conversation belongs to.
+        in: path
+        name: ChatServiceSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^IS[0-9a-fA-F]{32}$
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversations.v1.service.service_configuration.service_webhook_configuration'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    post:
+      description: Update a specific Webhook.
+      operationId: UpdateServiceWebhookConfiguration
+      parameters:
+      - description: The unique ID of the [Conversation Service](https://www.twilio.com/docs/conversations/api/service-resource)
+          this conversation belongs to.
+        in: path
+        name: ChatServiceSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^IS[0-9a-fA-F]{32}$
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                Filters:
+                  description: The list of events that your configured webhook targets
+                    will receive. Events not configured here will not fire. Possible
+                    values are `onParticipantAdd`, `onParticipantAdded`, `onDeliveryUpdated`,
+                    `onConversationUpdated`, `onConversationRemove`, `onParticipantRemove`,
+                    `onConversationUpdate`, `onMessageAdd`, `onMessageRemoved`, `onParticipantUpdated`,
+                    `onConversationAdded`, `onMessageAdded`, `onConversationAdd`,
+                    `onConversationRemoved`, `onParticipantUpdate`, `onMessageRemove`,
+                    `onMessageUpdated`, `onParticipantRemoved`, `onMessageUpdate`
+                    or `onConversationStateUpdated`.
+                  items:
+                    type: string
+                  type: array
+                Method:
+                  description: The HTTP method to be used when sending a webhook request.
+                    One of `GET` or `POST`.
+                  type: string
+                PostWebhookUrl:
+                  description: The absolute url the post-event webhook request should
+                    be sent to.
+                  format: uri
+                  type: string
+                PreWebhookUrl:
+                  description: The absolute url the pre-event webhook request should
+                    be sent to.
+                  format: uri
+                  type: string
+              title: UpdateServiceWebhookConfigurationRequest
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/conversations.v1.service.service_configuration.service_webhook_configuration'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://conversations.twilio.com
+    x-twilio:
+      defaultOutputProperties:
+      - chat_service_sid
+      parent: /Services/{ChatServiceSid}/Configuration
       pathType: instance
   /v1/Services/{ChatServiceSid}/Conversations:
     description: A Service Conversation resource represents an omnichannel group conversation
@@ -4339,6 +4840,7 @@ paths:
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Services
       pathType: list
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages:
     description: A Service Message resource represents a message in a conversation
@@ -4503,6 +5005,7 @@ paths:
       - index
       - author
       - date_created
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: list
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts:
     description: A Service Message Receipt resource represents a delivery/read receipt
@@ -4588,11 +5091,13 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: delivery_receipt
       defaultOutputProperties:
       - sid
       - message_sid
       - status
       - date_created
+      parent: /Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages
       pathType: list
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{MessageSid}/Receipts/{Sid}:
     description: A Service Message Receipt resource represents a delivery/read receipt
@@ -4651,11 +5156,13 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: delivery_receipt
       defaultOutputProperties:
       - sid
       - message_sid
       - status
       - date_created
+      parent: /Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages
       pathType: instance
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Messages/{Sid}:
     delete:
@@ -4833,6 +5340,7 @@ paths:
       - index
       - author
       - date_created
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: instance
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants:
     description: A Service Participant resource represents a member of the conversation
@@ -5002,6 +5510,7 @@ paths:
       defaultOutputProperties:
       - sid
       - messaging_binding
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: list
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Participants/{Sid}:
     delete:
@@ -5199,6 +5708,7 @@ paths:
       defaultOutputProperties:
       - sid
       - messaging_binding
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: instance
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks:
     description: A Conversation-scoped Webhook resource manages a set of callback
@@ -5356,6 +5866,7 @@ paths:
       defaultOutputProperties:
       - sid
       - target
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: list
   /v1/Services/{ChatServiceSid}/Conversations/{ConversationSid}/Webhooks/{Sid}:
     delete:
@@ -5520,6 +6031,7 @@ paths:
       defaultOutputProperties:
       - sid
       - target
+      parent: /Services/{ChatServiceSid}/Conversations
       pathType: instance
   /v1/Services/{ChatServiceSid}/Conversations/{Sid}:
     delete:
@@ -5693,6 +6205,7 @@ paths:
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Services
       pathType: instance
   /v1/Services/{ChatServiceSid}/ParticipantConversations:
     description: Service Participant Conversations resource represents a list of Conversations
@@ -5780,6 +6293,7 @@ paths:
       - chat_service_sid
       - participant_sid
       - conversation_sid
+      parent: /Services
       pathType: list
   /v1/Services/{ChatServiceSid}/Roles:
     description: A Service Role resource represents a set of permissions granted to
@@ -5907,6 +6421,7 @@ paths:
       - sid
       - friendly_name
       - type
+      parent: /Services
       pathType: list
   /v1/Services/{ChatServiceSid}/Roles/{Sid}:
     delete:
@@ -6036,6 +6551,7 @@ paths:
       - sid
       - friendly_name
       - type
+      parent: /Services
       pathType: instance
   /v1/Services/{ChatServiceSid}/Users:
     description: A Service User resource represents a conversation user belonging
@@ -6167,6 +6683,7 @@ paths:
       defaultOutputProperties:
       - sid
       - identity
+      parent: /Services
       pathType: list
   /v1/Services/{ChatServiceSid}/Users/{Sid}:
     delete:
@@ -6306,6 +6823,7 @@ paths:
       defaultOutputProperties:
       - sid
       - identity
+      parent: /Services
       pathType: instance
   /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations:
     description: A Service User Conversation resource represents a conversation of
@@ -6380,12 +6898,14 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: user_conversation
       defaultOutputProperties:
       - conversation_sid
       - user_sid
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Services/{ChatServiceSid}/Users
       pathType: list
   /v1/Services/{ChatServiceSid}/Users/{UserSid}/Conversations/{ConversationSid}:
     delete:
@@ -6530,12 +7050,14 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: user_conversation
       defaultOutputProperties:
       - conversation_sid
       - user_sid
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Services/{ChatServiceSid}/Users
       pathType: instance
   /v1/Services/{Sid}:
     delete:
@@ -6877,12 +7399,14 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: user_conversation
       defaultOutputProperties:
       - conversation_sid
       - user_sid
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Users
       pathType: list
   /v1/Users/{UserSid}/Conversations/{ConversationSid}:
     delete:
@@ -6997,12 +7521,14 @@ paths:
     servers:
     - url: https://conversations.twilio.com
     x-twilio:
+      className: user_conversation
       defaultOutputProperties:
       - conversation_sid
       - user_sid
       - chat_service_sid
       - friendly_name
       - date_created
+      parent: /Users
       pathType: instance
 servers:
 - url: https://conversations.twilio.com

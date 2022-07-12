@@ -40,5 +40,5 @@ pub mod video_v1_room_room_recording;
 pub use self::video_v1_room_room_recording::VideoV1RoomRoomRecording;
 pub mod video_v1_room_room_recording_rule;
 pub use self::video_v1_room_room_recording_rule::VideoV1RoomRoomRecordingRule;
-pub mod video_v1_room_room_recording_rule_rules;
-pub use self::video_v1_room_room_recording_rule_rules::VideoV1RoomRoomRecordingRuleRules;
+pub mod video_v1_room_room_recording_rule_rules_inner;
+pub use self::video_v1_room_room_recording_rule_rules_inner::VideoV1RoomRoomRecordingRuleRulesInner;

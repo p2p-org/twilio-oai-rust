@@ -45,6 +45,7 @@ components:
           type: string
         subresource_uris:
           description: Account Instance Subresources
+          format: uri-map
           nullable: true
           type: object
         type:
@@ -98,6 +99,7 @@ components:
           type: string
         iso_country:
           description: The ISO country code of the address
+          format: iso-country-code
           nullable: true
           type: string
         postal_code:
@@ -160,7 +162,6 @@ components:
         capabilities:
           description: Indicate if a phone can receive calls or messages
           nullable: true
-          type: object
         date_created:
           description: The RFC 2822 date and time in GMT that the resource was created
           format: date-time-rfc-2822
@@ -188,10 +189,12 @@ components:
           type: string
         friendly_name:
           description: The string that you assigned to describe the resource
+          format: phone-number
           nullable: true
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -218,6 +221,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -235,6 +239,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -257,6 +262,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -292,6 +298,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -308,6 +315,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_url:
@@ -365,6 +373,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -382,6 +391,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_status_callback:
@@ -409,6 +419,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         uri:
@@ -429,6 +440,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -445,6 +457,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_url:
@@ -525,10 +538,12 @@ components:
           type: string
         country_code:
           description: The ISO-3166-1 country code of the country.
+          format: iso-country-code
           nullable: true
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -549,6 +564,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -562,10 +578,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -575,7 +593,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -583,9 +601,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -614,6 +633,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -627,10 +647,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -640,7 +662,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -648,9 +670,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -679,6 +702,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -692,10 +716,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -705,7 +731,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -713,9 +739,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -744,6 +771,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -757,10 +785,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -770,7 +800,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -778,9 +808,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -809,6 +840,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -822,10 +854,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -835,7 +869,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -843,9 +877,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -874,6 +909,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -887,10 +923,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -900,7 +938,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -908,9 +946,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -939,6 +978,7 @@ components:
           type: boolean
         capabilities:
           description: Whether a phone number can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -952,10 +992,12 @@ components:
           type: object
         friendly_name:
           description: A formatted version of the phone number
+          format: phone-number
           nullable: true
           type: string
         iso_country:
           description: The ISO country code of this phone number
+          format: iso-country-code
           nullable: true
           type: string
         lata:
@@ -965,7 +1007,7 @@ components:
         latitude:
           description: The latitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         locality:
           description: The locality or city of this phone number's location
           nullable: true
@@ -973,9 +1015,10 @@ components:
         longitude:
           description: The longitude of this phone number's location
           nullable: true
-          type: number
+          type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         postal_code:
@@ -1018,10 +1061,6 @@ components:
           minLength: 34
           nullable: true
           pattern: ^AC[0-9a-fA-F]{32}$
-          type: string
-        annotation:
-          description: The annotation provided for the call
-          nullable: true
           type: string
         answered_by:
           description: Either `human` or `machine` if this call was initiated with
@@ -1114,6 +1153,7 @@ components:
           type: string
         price_unit:
           description: The currency in which `Price` is measured.
+          format: currency
           nullable: true
           type: string
         queue_time:
@@ -1149,6 +1189,7 @@ components:
         subresource_uris:
           description: A list of related subresources identified by their relative
             URIs
+          format: uri-map
           nullable: true
           type: object
         to:
@@ -1182,11 +1223,9 @@ components:
         request:
           description: Call Request.
           nullable: true
-          type: object
         response:
           description: Call Response with Events.
           nullable: true
-          type: object
       type: object
     api.v2010.account.call.call_feedback:
       properties:
@@ -1272,8 +1311,7 @@ components:
           type: boolean
         issues:
           description: Issues experienced during the call
-          items:
-            type: object
+          items: {}
           nullable: true
           type: array
         quality_score_average:
@@ -1372,6 +1410,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -1454,6 +1493,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -1536,7 +1576,6 @@ components:
         encryption_details:
           description: How to decrypt the recording.
           nullable: true
-          type: object
         error_code:
           description: More information about why the recording is missing, if status
             is `absent`.
@@ -1548,6 +1587,7 @@ components:
           type: number
         price_unit:
           description: The currency used in the price property.
+          format: currency
           nullable: true
           type: string
         sid:
@@ -1635,6 +1675,98 @@ components:
           nullable: true
           type: string
       type: object
+    api.v2010.account.call.siprec:
+      properties:
+        account_sid:
+          description: The SID of the Account that created this resource
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+        call_sid:
+          description: The SID of the Call the resource is associated with
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+        date_updated:
+          description: The RFC 2822 date and time in GMT that this resource was last
+            updated
+          format: date-time-rfc-2822
+          nullable: true
+          type: string
+        name:
+          description: The name of this resource
+          nullable: true
+          type: string
+        sid:
+          description: The SID of the Siprec resource.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^SR[0-9a-fA-F]{32}$
+          type: string
+        status:
+          description: The status - one of `stopped`, `in-progress`
+          enum:
+          - in-progress
+          - stopped
+          nullable: true
+          type: string
+        uri:
+          description: The URI of the resource, relative to `https://api.twilio.com`
+          format: uri
+          nullable: true
+          type: string
+      type: object
+    api.v2010.account.call.stream:
+      properties:
+        account_sid:
+          description: The SID of the Account that created this resource
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+        call_sid:
+          description: The SID of the Call the resource is associated with
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+        date_updated:
+          description: The RFC 2822 date and time in GMT that this resource was last
+            updated
+          format: date-time-rfc-2822
+          nullable: true
+          type: string
+        name:
+          description: The name of this resource
+          nullable: true
+          type: string
+        sid:
+          description: The SID of the Stream resource.
+          maxLength: 34
+          minLength: 34
+          nullable: true
+          pattern: ^MZ[0-9a-fA-F]{32}$
+          type: string
+        status:
+          description: The status - one of `stopped`, `in-progress`
+          enum:
+          - in-progress
+          - stopped
+          nullable: true
+          type: string
+        uri:
+          description: The URI of the resource, relative to `https://api.twilio.com`
+          format: uri
+          nullable: true
+          type: string
+      type: object
     api.v2010.account.conference:
       properties:
         account_sid:
@@ -1702,6 +1834,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -1759,7 +1892,6 @@ components:
         encryption_details:
           description: How to decrypt the recording.
           nullable: true
-          type: object
         error_code:
           description: More information about why the recording is missing, if status
             is `absent`.
@@ -1771,6 +1903,7 @@ components:
           type: string
         price_unit:
           description: The currency used in the price property.
+          format: currency
           nullable: true
           type: string
         sid:
@@ -1922,6 +2055,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         deauthorize_callback_url:
@@ -2007,6 +2141,7 @@ components:
           type: string
         capabilities:
           description: Indicate if a phone can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -2036,8 +2171,20 @@ components:
           nullable: true
           pattern: ^AD[0-9a-fA-F]{32}$
           type: string
+        emergency_address_status:
+          description: State of the emergency address configuration for the phone
+            number
+          enum:
+          - registered
+          - unregistered
+          - pending-registration
+          - registration-failure
+          - pending-unregistration
+          - unregistration-failure
+          nullable: true
+          type: string
         emergency_status:
-          description: Whether the phone number is enabled for emergency calling
+          description: Displays if emergency calling is enabled for this number.
           enum:
           - Active
           - Inactive
@@ -2060,6 +2207,7 @@ components:
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -2086,6 +2234,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -2103,6 +2252,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -2128,6 +2278,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -2163,6 +2314,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -2179,6 +2331,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_receive_mode:
@@ -2205,7 +2358,6 @@ components:
         configuration:
           description: A JSON string that represents the current configuration
           nullable: true
-          type: object
         date_created:
           description: The RFC 2822 date and time in GMT that the resource was created
           format: date-time-rfc-2822
@@ -2241,6 +2393,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         unique_name:
@@ -2351,6 +2504,7 @@ components:
           type: string
         capabilities:
           description: Indicate if a phone can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -2380,8 +2534,20 @@ components:
           nullable: true
           pattern: ^AD[0-9a-fA-F]{32}$
           type: string
+        emergency_address_status:
+          description: State of the emergency address configuration for the phone
+            number
+          enum:
+          - registered
+          - unregistered
+          - pending-registration
+          - registration-failure
+          - pending-unregistration
+          - unregistration-failure
+          nullable: true
+          type: string
         emergency_status:
-          description: Whether the phone number is enabled for emergency calling
+          description: Displays if emergency calling is enabled for this number.
           enum:
           - Active
           - Inactive
@@ -2404,6 +2570,7 @@ components:
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -2429,6 +2596,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -2446,6 +2614,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -2471,6 +2640,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -2506,6 +2676,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -2522,6 +2693,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_receive_mode:
@@ -2579,6 +2751,7 @@ components:
           type: string
         capabilities:
           description: Indicate if a phone can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -2608,8 +2781,20 @@ components:
           nullable: true
           pattern: ^AD[0-9a-fA-F]{32}$
           type: string
+        emergency_address_status:
+          description: State of the emergency address configuration for the phone
+            number
+          enum:
+          - registered
+          - unregistered
+          - pending-registration
+          - registration-failure
+          - pending-unregistration
+          - unregistration-failure
+          nullable: true
+          type: string
         emergency_status:
-          description: Whether the phone number is enabled for emergency calling
+          description: Displays if emergency calling is enabled for this number.
           enum:
           - Active
           - Inactive
@@ -2632,6 +2817,7 @@ components:
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -2658,6 +2844,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -2675,6 +2862,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -2700,6 +2888,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -2735,6 +2924,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -2751,6 +2941,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_receive_mode:
@@ -2808,6 +2999,7 @@ components:
           type: string
         capabilities:
           description: Indicate if a phone can receive calls or messages
+          format: phone-number-capabilities
           nullable: true
           properties:
             fax:
@@ -2837,8 +3029,20 @@ components:
           nullable: true
           pattern: ^AD[0-9a-fA-F]{32}$
           type: string
+        emergency_address_status:
+          description: State of the emergency address configuration for the phone
+            number
+          enum:
+          - registered
+          - unregistered
+          - pending-registration
+          - registration-failure
+          - pending-unregistration
+          - unregistration-failure
+          nullable: true
+          type: string
         emergency_status:
-          description: Whether the phone number is enabled for emergency calling
+          description: Displays if emergency calling is enabled for this number.
           enum:
           - Active
           - Inactive
@@ -2861,6 +3065,7 @@ components:
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -2887,6 +3092,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -2904,6 +3110,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -2929,6 +3136,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -2964,6 +3172,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -2980,6 +3189,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_receive_mode:
@@ -3071,6 +3281,7 @@ components:
           type: string
         from:
           description: The phone number that initiated the message
+          format: phone-number
           nullable: true
           type: string
         messaging_service_sid:
@@ -3094,6 +3305,7 @@ components:
           type: string
         price_unit:
           description: The currency in which price is measured
+          format: currency
           nullable: true
           type: string
         sid:
@@ -3123,6 +3335,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         to:
@@ -3340,6 +3553,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -3422,6 +3636,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -3480,6 +3695,7 @@ components:
           type: string
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -3628,12 +3844,16 @@ components:
         encryption_details:
           description: How to decrypt the recording.
           nullable: true
-          type: object
         error_code:
           description: More information about why the recording is missing, if status
             is `absent`.
           nullable: true
           type: integer
+        media_url:
+          description: The URL of the media file.
+          format: uri
+          nullable: true
+          type: string
         price:
           description: The one-time cost of creating the recording.
           nullable: true
@@ -3675,10 +3895,12 @@ components:
           - processing
           - completed
           - absent
+          - deleted
           nullable: true
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -3756,6 +3978,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
       type: object
@@ -3825,6 +4048,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
       type: object
@@ -3862,6 +4086,7 @@ components:
           type: number
         price_unit:
           description: The currency in which price is measured
+          format: currency
           nullable: true
           type: string
         recording_sid:
@@ -3948,6 +4173,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -3964,6 +4190,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -4033,6 +4260,7 @@ components:
           type: string
         subresource_uris:
           description: The list of credentials associated with this credential list.
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -4158,6 +4386,7 @@ components:
           type: boolean
         subresource_uris:
           description: A list mapping resources associated with the SIP Domain resource
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -4174,6 +4403,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -4190,6 +4420,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_status_callback_method:
@@ -4201,6 +4432,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_status_callback_url:
@@ -4443,6 +4675,7 @@ components:
           type: string
         subresource_uris:
           description: The IP addresses associated with this resource.
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -4533,6 +4766,7 @@ components:
         ice_servers:
           description: An array representing the ephemeral credentials
           items:
+            format: ice-servers
             properties:
               credential:
                 type: string
@@ -4592,6 +4826,7 @@ components:
           type: number
         price_unit:
           description: The currency in which price is measured
+          format: currency
           nullable: true
           type: string
         recording_sid:
@@ -4653,7 +4888,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -4846,6 +5083,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -4918,6 +5157,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -4927,6 +5167,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -4963,7 +5204,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -5156,6 +5399,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -5228,6 +5473,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -5237,6 +5483,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -5273,7 +5520,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -5466,6 +5715,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -5538,6 +5789,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -5547,6 +5799,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -5583,7 +5836,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -5776,6 +6031,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -5848,6 +6105,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -5857,6 +6115,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -5893,7 +6152,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -6086,6 +6347,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -6158,6 +6421,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -6167,6 +6431,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -6203,7 +6468,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -6396,6 +6663,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -6468,6 +6737,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -6477,6 +6747,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -6513,7 +6784,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -6706,6 +6979,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -6778,6 +7053,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -6787,6 +7063,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -6823,7 +7100,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -7016,6 +7295,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -7088,6 +7369,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -7097,6 +7379,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -7133,7 +7416,9 @@ components:
         category:
           description: The category of usage
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -7326,6 +7611,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -7398,6 +7685,7 @@ components:
           type: number
         price_unit:
           description: The currency in which `price` is measured
+          format: currency
           nullable: true
           type: string
         start_date:
@@ -7407,6 +7695,7 @@ components:
           type: string
         subresource_uris:
           description: A list of related resources identified by their relative URIs
+          format: uri-map
           nullable: true
           type: object
         uri:
@@ -7445,6 +7734,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         callback_url:
@@ -7513,7 +7803,9 @@ components:
         usage_category:
           description: The usage category the trigger watches
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -7706,6 +7998,8 @@ components:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -7782,6 +8076,7 @@ components:
           type: string
         phone_number:
           description: The phone number to verify in E.164 format
+          format: phone-number
           nullable: true
           type: string
         validation_code:
@@ -7805,7 +8100,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Api
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /2010-04-01/Accounts.json:
@@ -7942,6 +8237,7 @@ paths:
         in: query
         name: IsoCountry
         schema:
+          format: iso-country-code
           type: string
       - description: How many resources to return in each list page. The default is
           50, and the maximum is 1000.
@@ -8029,6 +8325,7 @@ paths:
                   type: string
                 IsoCountry:
                   description: The ISO country code of the new address.
+                  format: iso-country-code
                   type: string
                 PostalCode:
                   description: The postal code of the new address.
@@ -8067,6 +8364,7 @@ paths:
       - friendly_name
       - validated
       - verified
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Addresses/{AddressSid}/DependentPhoneNumbers.json:
     description: Phone numbers dependent on an Address resource
@@ -8145,6 +8443,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts/{AccountSid}/Addresses.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Addresses/{Sid}.json:
     delete:
@@ -8296,6 +8595,7 @@ paths:
       - friendly_name
       - validated
       - verified
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Applications.json:
     description: An Application instance resource represents an application that you
@@ -8410,6 +8710,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -8426,6 +8727,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsStatusCallback:
                   description: The URL we should call using a POST method to send
@@ -8452,6 +8754,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceCallerIdLookup:
                   description: 'Whether we should look up the caller''s caller-ID
@@ -8468,6 +8771,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -8484,6 +8788,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceUrl:
                   description: The URL we should call when the phone number assigned
@@ -8510,6 +8815,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Applications/{Sid}.json:
     delete:
@@ -8635,6 +8941,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -8651,6 +8958,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsStatusCallback:
                   description: 'Same as message_status_callback: The URL we should
@@ -8679,6 +8987,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceCallerIdLookup:
                   description: 'Whether we should look up the caller''s caller-ID
@@ -8695,6 +9004,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -8711,6 +9021,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceUrl:
                   description: The URL we should call when the phone number assigned
@@ -8737,6 +9048,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/AuthorizedConnectApps.json:
     description: Authorized Twilio Connect apps
@@ -8806,6 +9118,7 @@ paths:
       defaultOutputProperties:
       - connect_app_sid
       - connect_app_friendly_name
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AuthorizedConnectApps/{ConnectAppSid}.json:
     description: Authorized Twilio Connect apps
@@ -8849,6 +9162,7 @@ paths:
       defaultOutputProperties:
       - connect_app_sid
       - connect_app_friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers.json:
     description: Country codes with available phone numbers
@@ -8914,10 +9228,12 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: available_phone_number_country
       defaultOutputProperties:
       - country_code
       - country
       - beta
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}.json:
     description: Country codes with available phone numbers
@@ -8942,6 +9258,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       responses:
         '200':
@@ -8957,10 +9274,12 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: available_phone_number_country
       defaultOutputProperties:
       - country_code
       - country
       - beta
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/Local.json:
     description: Available local phone numbers
@@ -8984,6 +9303,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -9048,6 +9368,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -9155,6 +9476,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/MachineToMachine.json:
     description: Available machine-to-machine phone numbers
@@ -9178,6 +9500,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -9242,6 +9565,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -9349,6 +9673,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/Mobile.json:
     description: Available mobile phone numbers
@@ -9372,6 +9697,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -9436,6 +9762,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -9543,6 +9870,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/National.json:
     description: Available national phone numbers
@@ -9566,6 +9894,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -9630,6 +9959,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -9737,6 +10067,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/SharedCost.json:
     description: Available shared cost numbers
@@ -9760,6 +10091,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -9824,6 +10156,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -9931,6 +10264,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/TollFree.json:
     description: Available toll free phone numbers
@@ -9954,6 +10288,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -10018,6 +10353,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -10125,6 +10461,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/AvailablePhoneNumbers/{CountryCode}/Voip.json:
     description: Available VoIP phone numbers
@@ -10148,6 +10485,7 @@ paths:
         name: CountryCode
         required: true
         schema:
+          format: iso-country-code
           type: string
       - description: The area code of the phone numbers to read. Applies to only phone
           numbers in the US and Canada.
@@ -10212,6 +10550,7 @@ paths:
         in: query
         name: NearNumber
         schema:
+          format: phone-number
           type: string
       - description: Given a latitude/longitude pair `lat,long` find geographically
           close numbers within `distance` miles. Applies to only phone numbers in
@@ -10319,6 +10658,7 @@ paths:
       - phone_number
       - region
       - beta
+      parent: /Accounts/{AccountSid}/AvailablePhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Balance.json:
     description: Account balance
@@ -10355,6 +10695,7 @@ paths:
       - account_sid
       - balance
       - currency
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls.json:
     description: A Call is an object that represents a connection between a telephone
@@ -10378,12 +10719,14 @@ paths:
         in: query
         name: To
         schema:
+          format: phone-number
           type: string
       - description: Only include calls from this phone number, SIP address, Client
           identifier or SIM SID.
         in: query
         name: From
         schema:
+          format: phone-number
           type: string
       - description: Only include calls spawned by calls with this SID.
         in: query
@@ -10561,6 +10904,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Byoc:
                   description: The SID of a BYOC (Bring Your Own Carrier) trunk to
@@ -10578,10 +10922,10 @@ paths:
                 CallToken:
                   description: A token string needed to invoke a forwarded call. A
                     call_token is generated when an incoming call is received on a
-                    Twilio number. this field should be populated by the incoming
-                    call's call_token to make this outgoing call as a forwarded call
-                    of incoming call. A forwarded call should bear the same caller-id
-                    of incoming call.
+                    Twilio number. Pass an incoming call's call_token value to a forwarded
+                    call via the call_token parameter when creating a new call. A
+                    forwarded call should bear the same CallerID of the original incoming
+                    call.
                   type: string
                 CallerId:
                   description: The phone number, SIP address, or Client identifier
@@ -10600,6 +10944,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 FallbackUrl:
                   description: The URL that we call using the `fallback_method` if
@@ -10658,6 +11003,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Record:
                   description: Whether to record the call. Can be `true` to record
@@ -10694,6 +11040,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 RecordingTrack:
                   description: 'The audio track to record for the call. Can be: `inbound`,
@@ -10752,6 +11099,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TimeLimit:
                   description: The maximum duration of the call in seconds. Constraints
@@ -10779,7 +11127,7 @@ paths:
                 Twiml:
                   description: TwiML instructions for the call Twilio will use without
                     fetching Twiml from url parameter. If both `twiml` and `url` are
-                    provided then `twiml` parameter will be ignored.
+                    provided then `twiml` parameter will be ignored. Max 4000 characters.
                   type: string
                 Url:
                   description: The absolute URL that returns the TwiML instructions
@@ -10804,6 +11152,11 @@ paths:
       - accountSid_authToken: []
       x-maturity:
       - GA
+      x-twilio:
+        conditional:
+        - - url
+          - twiml
+          - application_sid
     servers:
     - url: https://api.twilio.com
     x-twilio:
@@ -10813,6 +11166,7 @@ paths:
       - to
       - status
       - start_time
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/FeedbackSummary.json:
     description: Call FeedbackSummary resources provide an idea of how your end user's
@@ -10868,6 +11222,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
               required:
               - StartDate
@@ -10893,6 +11248,7 @@ paths:
       - call_feedback_count
       - quality_score_average
       - start_date
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/FeedbackSummary/{Sid}.json:
     delete:
@@ -10970,6 +11326,7 @@ paths:
       - call_feedback_count
       - quality_score_average
       - start_date
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Events.json:
     description: 'TODO: Resource-level docs'
@@ -11046,6 +11403,7 @@ paths:
       defaultOutputProperties:
       - request
       - response
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Feedback.json:
     description: The call Feedback subresource describes the quality experienced during
@@ -11151,6 +11509,7 @@ paths:
       - sid
       - quality_score
       - date_created
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Notifications.json:
     description: Error notifications for calls
@@ -11265,6 +11624,7 @@ paths:
       - call_sid
       - error_code
       - message_date
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Notifications/{Sid}.json:
     description: Error notifications for calls
@@ -11321,6 +11681,7 @@ paths:
       - call_sid
       - error_code
       - message_date
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Payments.json:
     description: Twilio enabled secure payments solution for accepting credit and
@@ -11374,7 +11735,7 @@ paths:
                   description: The currency of the `charge_amount`, formatted as [ISO
                     4127](http://www.iso.org/iso/home/standards/currency_codes.htm)
                     format. The default value is `USD` and all values allowed from
-                    the <Pay> Connector are accepted.
+                    the Pay Connector are accepted.
                   type: string
                 Description:
                   description: The description can be used to provide more details
@@ -11399,15 +11760,13 @@ paths:
                     many digits.
                   type: integer
                 Parameter:
-                  description: A single level JSON string that is required when accepting
-                    certain information specific only to ACH payments. The information
+                  description: A single-level JSON object used to pass custom parameters
+                    to payment processors. (Required for ACH payments). The information
                     that has to be included here depends on the <Pay> Connector. [Read
                     more](https://www.twilio.com/console/voice/pay-connectors).
-                  type: object
                 PaymentConnector:
-                  description: This is the unique name corresponding to the Payment
-                    Gateway Connector installed in the Twilio Add-ons. Learn more
-                    about [<Pay> Connectors](https://www.twilio.com/console/voice/pay-connectors).
+                  description: This is the unique name corresponding to the Pay Connector
+                    installed in the Twilio Add-ons. Learn more about [<Pay> Connectors](https://www.twilio.com/console/voice/pay-connectors).
                     The default value is `Default`.
                   type: string
                 PaymentMethod:
@@ -11473,6 +11832,7 @@ paths:
     x-twilio:
       defaultOutputProperties:
       - sid
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Payments/{Sid}.json:
     description: Twilio enabled secure payments solution for accepting credit and
@@ -11538,7 +11898,7 @@ paths:
                   description: Indicates whether the current payment session should
                     be cancelled or completed. When `cancel` the payment session is
                     cancelled. When `complete`, Twilio sends the payment information
-                    to the selected <Pay> connector for processing.
+                    to the selected Pay Connector for processing.
                   enum:
                   - complete
                   - cancel
@@ -11571,6 +11931,7 @@ paths:
     x-twilio:
       defaultOutputProperties:
       - sid
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings.json:
     description: A Recording resource represents the recording associated with a voice
@@ -11734,6 +12095,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 RecordingTrack:
                   description: 'The audio track to record for the call. Can be: `inbound`,
@@ -11771,6 +12133,7 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Recordings/{Sid}.json:
     delete:
@@ -11941,6 +12304,1500 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts/{AccountSid}/Calls.json
+      pathType: instance
+  /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Siprec.json:
+    description: 'TODO: Resource-level docs'
+    post:
+      description: Create a Siprec
+      operationId: CreateSiprec
+      parameters:
+      - description: The SID of the [Account](https://www.twilio.com/docs/iam/api/account)
+          that created this Siprec resource.
+        in: path
+        name: AccountSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the [Call](https://www.twilio.com/docs/voice/api/call-resource)
+          the Siprec resource is associated with.
+        in: path
+        name: CallSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                ConnectorName:
+                  description: Unique name used when configuring the connector via
+                    Marketplace Add-on.
+                  type: string
+                Name:
+                  description: The user-specified name of this Siprec, if one was
+                    given when the Siprec was created. This may be used to stop the
+                    Siprec.
+                  type: string
+                Parameter1.Name:
+                  description: Parameter name
+                  type: string
+                Parameter1.Value:
+                  description: Parameter value
+                  type: string
+                Parameter10.Name:
+                  description: Parameter name
+                  type: string
+                Parameter10.Value:
+                  description: Parameter value
+                  type: string
+                Parameter11.Name:
+                  description: Parameter name
+                  type: string
+                Parameter11.Value:
+                  description: Parameter value
+                  type: string
+                Parameter12.Name:
+                  description: Parameter name
+                  type: string
+                Parameter12.Value:
+                  description: Parameter value
+                  type: string
+                Parameter13.Name:
+                  description: Parameter name
+                  type: string
+                Parameter13.Value:
+                  description: Parameter value
+                  type: string
+                Parameter14.Name:
+                  description: Parameter name
+                  type: string
+                Parameter14.Value:
+                  description: Parameter value
+                  type: string
+                Parameter15.Name:
+                  description: Parameter name
+                  type: string
+                Parameter15.Value:
+                  description: Parameter value
+                  type: string
+                Parameter16.Name:
+                  description: Parameter name
+                  type: string
+                Parameter16.Value:
+                  description: Parameter value
+                  type: string
+                Parameter17.Name:
+                  description: Parameter name
+                  type: string
+                Parameter17.Value:
+                  description: Parameter value
+                  type: string
+                Parameter18.Name:
+                  description: Parameter name
+                  type: string
+                Parameter18.Value:
+                  description: Parameter value
+                  type: string
+                Parameter19.Name:
+                  description: Parameter name
+                  type: string
+                Parameter19.Value:
+                  description: Parameter value
+                  type: string
+                Parameter2.Name:
+                  description: Parameter name
+                  type: string
+                Parameter2.Value:
+                  description: Parameter value
+                  type: string
+                Parameter20.Name:
+                  description: Parameter name
+                  type: string
+                Parameter20.Value:
+                  description: Parameter value
+                  type: string
+                Parameter21.Name:
+                  description: Parameter name
+                  type: string
+                Parameter21.Value:
+                  description: Parameter value
+                  type: string
+                Parameter22.Name:
+                  description: Parameter name
+                  type: string
+                Parameter22.Value:
+                  description: Parameter value
+                  type: string
+                Parameter23.Name:
+                  description: Parameter name
+                  type: string
+                Parameter23.Value:
+                  description: Parameter value
+                  type: string
+                Parameter24.Name:
+                  description: Parameter name
+                  type: string
+                Parameter24.Value:
+                  description: Parameter value
+                  type: string
+                Parameter25.Name:
+                  description: Parameter name
+                  type: string
+                Parameter25.Value:
+                  description: Parameter value
+                  type: string
+                Parameter26.Name:
+                  description: Parameter name
+                  type: string
+                Parameter26.Value:
+                  description: Parameter value
+                  type: string
+                Parameter27.Name:
+                  description: Parameter name
+                  type: string
+                Parameter27.Value:
+                  description: Parameter value
+                  type: string
+                Parameter28.Name:
+                  description: Parameter name
+                  type: string
+                Parameter28.Value:
+                  description: Parameter value
+                  type: string
+                Parameter29.Name:
+                  description: Parameter name
+                  type: string
+                Parameter29.Value:
+                  description: Parameter value
+                  type: string
+                Parameter3.Name:
+                  description: Parameter name
+                  type: string
+                Parameter3.Value:
+                  description: Parameter value
+                  type: string
+                Parameter30.Name:
+                  description: Parameter name
+                  type: string
+                Parameter30.Value:
+                  description: Parameter value
+                  type: string
+                Parameter31.Name:
+                  description: Parameter name
+                  type: string
+                Parameter31.Value:
+                  description: Parameter value
+                  type: string
+                Parameter32.Name:
+                  description: Parameter name
+                  type: string
+                Parameter32.Value:
+                  description: Parameter value
+                  type: string
+                Parameter33.Name:
+                  description: Parameter name
+                  type: string
+                Parameter33.Value:
+                  description: Parameter value
+                  type: string
+                Parameter34.Name:
+                  description: Parameter name
+                  type: string
+                Parameter34.Value:
+                  description: Parameter value
+                  type: string
+                Parameter35.Name:
+                  description: Parameter name
+                  type: string
+                Parameter35.Value:
+                  description: Parameter value
+                  type: string
+                Parameter36.Name:
+                  description: Parameter name
+                  type: string
+                Parameter36.Value:
+                  description: Parameter value
+                  type: string
+                Parameter37.Name:
+                  description: Parameter name
+                  type: string
+                Parameter37.Value:
+                  description: Parameter value
+                  type: string
+                Parameter38.Name:
+                  description: Parameter name
+                  type: string
+                Parameter38.Value:
+                  description: Parameter value
+                  type: string
+                Parameter39.Name:
+                  description: Parameter name
+                  type: string
+                Parameter39.Value:
+                  description: Parameter value
+                  type: string
+                Parameter4.Name:
+                  description: Parameter name
+                  type: string
+                Parameter4.Value:
+                  description: Parameter value
+                  type: string
+                Parameter40.Name:
+                  description: Parameter name
+                  type: string
+                Parameter40.Value:
+                  description: Parameter value
+                  type: string
+                Parameter41.Name:
+                  description: Parameter name
+                  type: string
+                Parameter41.Value:
+                  description: Parameter value
+                  type: string
+                Parameter42.Name:
+                  description: Parameter name
+                  type: string
+                Parameter42.Value:
+                  description: Parameter value
+                  type: string
+                Parameter43.Name:
+                  description: Parameter name
+                  type: string
+                Parameter43.Value:
+                  description: Parameter value
+                  type: string
+                Parameter44.Name:
+                  description: Parameter name
+                  type: string
+                Parameter44.Value:
+                  description: Parameter value
+                  type: string
+                Parameter45.Name:
+                  description: Parameter name
+                  type: string
+                Parameter45.Value:
+                  description: Parameter value
+                  type: string
+                Parameter46.Name:
+                  description: Parameter name
+                  type: string
+                Parameter46.Value:
+                  description: Parameter value
+                  type: string
+                Parameter47.Name:
+                  description: Parameter name
+                  type: string
+                Parameter47.Value:
+                  description: Parameter value
+                  type: string
+                Parameter48.Name:
+                  description: Parameter name
+                  type: string
+                Parameter48.Value:
+                  description: Parameter value
+                  type: string
+                Parameter49.Name:
+                  description: Parameter name
+                  type: string
+                Parameter49.Value:
+                  description: Parameter value
+                  type: string
+                Parameter5.Name:
+                  description: Parameter name
+                  type: string
+                Parameter5.Value:
+                  description: Parameter value
+                  type: string
+                Parameter50.Name:
+                  description: Parameter name
+                  type: string
+                Parameter50.Value:
+                  description: Parameter value
+                  type: string
+                Parameter51.Name:
+                  description: Parameter name
+                  type: string
+                Parameter51.Value:
+                  description: Parameter value
+                  type: string
+                Parameter52.Name:
+                  description: Parameter name
+                  type: string
+                Parameter52.Value:
+                  description: Parameter value
+                  type: string
+                Parameter53.Name:
+                  description: Parameter name
+                  type: string
+                Parameter53.Value:
+                  description: Parameter value
+                  type: string
+                Parameter54.Name:
+                  description: Parameter name
+                  type: string
+                Parameter54.Value:
+                  description: Parameter value
+                  type: string
+                Parameter55.Name:
+                  description: Parameter name
+                  type: string
+                Parameter55.Value:
+                  description: Parameter value
+                  type: string
+                Parameter56.Name:
+                  description: Parameter name
+                  type: string
+                Parameter56.Value:
+                  description: Parameter value
+                  type: string
+                Parameter57.Name:
+                  description: Parameter name
+                  type: string
+                Parameter57.Value:
+                  description: Parameter value
+                  type: string
+                Parameter58.Name:
+                  description: Parameter name
+                  type: string
+                Parameter58.Value:
+                  description: Parameter value
+                  type: string
+                Parameter59.Name:
+                  description: Parameter name
+                  type: string
+                Parameter59.Value:
+                  description: Parameter value
+                  type: string
+                Parameter6.Name:
+                  description: Parameter name
+                  type: string
+                Parameter6.Value:
+                  description: Parameter value
+                  type: string
+                Parameter60.Name:
+                  description: Parameter name
+                  type: string
+                Parameter60.Value:
+                  description: Parameter value
+                  type: string
+                Parameter61.Name:
+                  description: Parameter name
+                  type: string
+                Parameter61.Value:
+                  description: Parameter value
+                  type: string
+                Parameter62.Name:
+                  description: Parameter name
+                  type: string
+                Parameter62.Value:
+                  description: Parameter value
+                  type: string
+                Parameter63.Name:
+                  description: Parameter name
+                  type: string
+                Parameter63.Value:
+                  description: Parameter value
+                  type: string
+                Parameter64.Name:
+                  description: Parameter name
+                  type: string
+                Parameter64.Value:
+                  description: Parameter value
+                  type: string
+                Parameter65.Name:
+                  description: Parameter name
+                  type: string
+                Parameter65.Value:
+                  description: Parameter value
+                  type: string
+                Parameter66.Name:
+                  description: Parameter name
+                  type: string
+                Parameter66.Value:
+                  description: Parameter value
+                  type: string
+                Parameter67.Name:
+                  description: Parameter name
+                  type: string
+                Parameter67.Value:
+                  description: Parameter value
+                  type: string
+                Parameter68.Name:
+                  description: Parameter name
+                  type: string
+                Parameter68.Value:
+                  description: Parameter value
+                  type: string
+                Parameter69.Name:
+                  description: Parameter name
+                  type: string
+                Parameter69.Value:
+                  description: Parameter value
+                  type: string
+                Parameter7.Name:
+                  description: Parameter name
+                  type: string
+                Parameter7.Value:
+                  description: Parameter value
+                  type: string
+                Parameter70.Name:
+                  description: Parameter name
+                  type: string
+                Parameter70.Value:
+                  description: Parameter value
+                  type: string
+                Parameter71.Name:
+                  description: Parameter name
+                  type: string
+                Parameter71.Value:
+                  description: Parameter value
+                  type: string
+                Parameter72.Name:
+                  description: Parameter name
+                  type: string
+                Parameter72.Value:
+                  description: Parameter value
+                  type: string
+                Parameter73.Name:
+                  description: Parameter name
+                  type: string
+                Parameter73.Value:
+                  description: Parameter value
+                  type: string
+                Parameter74.Name:
+                  description: Parameter name
+                  type: string
+                Parameter74.Value:
+                  description: Parameter value
+                  type: string
+                Parameter75.Name:
+                  description: Parameter name
+                  type: string
+                Parameter75.Value:
+                  description: Parameter value
+                  type: string
+                Parameter76.Name:
+                  description: Parameter name
+                  type: string
+                Parameter76.Value:
+                  description: Parameter value
+                  type: string
+                Parameter77.Name:
+                  description: Parameter name
+                  type: string
+                Parameter77.Value:
+                  description: Parameter value
+                  type: string
+                Parameter78.Name:
+                  description: Parameter name
+                  type: string
+                Parameter78.Value:
+                  description: Parameter value
+                  type: string
+                Parameter79.Name:
+                  description: Parameter name
+                  type: string
+                Parameter79.Value:
+                  description: Parameter value
+                  type: string
+                Parameter8.Name:
+                  description: Parameter name
+                  type: string
+                Parameter8.Value:
+                  description: Parameter value
+                  type: string
+                Parameter80.Name:
+                  description: Parameter name
+                  type: string
+                Parameter80.Value:
+                  description: Parameter value
+                  type: string
+                Parameter81.Name:
+                  description: Parameter name
+                  type: string
+                Parameter81.Value:
+                  description: Parameter value
+                  type: string
+                Parameter82.Name:
+                  description: Parameter name
+                  type: string
+                Parameter82.Value:
+                  description: Parameter value
+                  type: string
+                Parameter83.Name:
+                  description: Parameter name
+                  type: string
+                Parameter83.Value:
+                  description: Parameter value
+                  type: string
+                Parameter84.Name:
+                  description: Parameter name
+                  type: string
+                Parameter84.Value:
+                  description: Parameter value
+                  type: string
+                Parameter85.Name:
+                  description: Parameter name
+                  type: string
+                Parameter85.Value:
+                  description: Parameter value
+                  type: string
+                Parameter86.Name:
+                  description: Parameter name
+                  type: string
+                Parameter86.Value:
+                  description: Parameter value
+                  type: string
+                Parameter87.Name:
+                  description: Parameter name
+                  type: string
+                Parameter87.Value:
+                  description: Parameter value
+                  type: string
+                Parameter88.Name:
+                  description: Parameter name
+                  type: string
+                Parameter88.Value:
+                  description: Parameter value
+                  type: string
+                Parameter89.Name:
+                  description: Parameter name
+                  type: string
+                Parameter89.Value:
+                  description: Parameter value
+                  type: string
+                Parameter9.Name:
+                  description: Parameter name
+                  type: string
+                Parameter9.Value:
+                  description: Parameter value
+                  type: string
+                Parameter90.Name:
+                  description: Parameter name
+                  type: string
+                Parameter90.Value:
+                  description: Parameter value
+                  type: string
+                Parameter91.Name:
+                  description: Parameter name
+                  type: string
+                Parameter91.Value:
+                  description: Parameter value
+                  type: string
+                Parameter92.Name:
+                  description: Parameter name
+                  type: string
+                Parameter92.Value:
+                  description: Parameter value
+                  type: string
+                Parameter93.Name:
+                  description: Parameter name
+                  type: string
+                Parameter93.Value:
+                  description: Parameter value
+                  type: string
+                Parameter94.Name:
+                  description: Parameter name
+                  type: string
+                Parameter94.Value:
+                  description: Parameter value
+                  type: string
+                Parameter95.Name:
+                  description: Parameter name
+                  type: string
+                Parameter95.Value:
+                  description: Parameter value
+                  type: string
+                Parameter96.Name:
+                  description: Parameter name
+                  type: string
+                Parameter96.Value:
+                  description: Parameter value
+                  type: string
+                Parameter97.Name:
+                  description: Parameter name
+                  type: string
+                Parameter97.Value:
+                  description: Parameter value
+                  type: string
+                Parameter98.Name:
+                  description: Parameter name
+                  type: string
+                Parameter98.Value:
+                  description: Parameter value
+                  type: string
+                Parameter99.Name:
+                  description: Parameter name
+                  type: string
+                Parameter99.Value:
+                  description: Parameter value
+                  type: string
+                StatusCallback:
+                  description: Absolute URL of the status callback.
+                  format: uri
+                  type: string
+                StatusCallbackMethod:
+                  description: The http method for the status_callback (one of GET,
+                    POST).
+                  enum:
+                  - HEAD
+                  - GET
+                  - POST
+                  - PATCH
+                  - PUT
+                  - DELETE
+                  format: http-method
+                  type: string
+                Track:
+                  description: One of `inbound_track`, `outbound_track`, `both_tracks`.
+                  enum:
+                  - inbound_track
+                  - outbound_track
+                  - both_tracks
+                  type: string
+              title: CreateSiprecRequest
+              type: object
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.v2010.account.call.siprec'
+          description: Created
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties:
+      - call_sid
+      - name
+      parent: /Accounts/{AccountSid}/Calls.json
+      pathType: list
+  /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Siprec/{Sid}.json:
+    description: 'TODO: Resource-level docs'
+    post:
+      description: Stop a Siprec using either the SID of the Siprec resource or the
+        `name` used when creating the resource
+      operationId: UpdateSiprec
+      parameters:
+      - description: The SID of the [Account](https://www.twilio.com/docs/iam/api/account)
+          that created this Siprec resource.
+        in: path
+        name: AccountSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the [Call](https://www.twilio.com/docs/voice/api/call-resource)
+          the Siprec resource is associated with.
+        in: path
+        name: CallSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the Siprec resource, or the `name` used when creating
+          the resource
+        in: path
+        name: Sid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                Status:
+                  description: The status. Must have the value `stopped`
+                  enum:
+                  - stopped
+                  type: string
+              required:
+              - Status
+              title: UpdateSiprecRequest
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.v2010.account.call.siprec'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties:
+      - call_sid
+      - name
+      parent: /Accounts/{AccountSid}/Calls.json
+      pathType: instance
+  /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Streams.json:
+    description: 'TODO: Resource-level docs'
+    post:
+      description: Create a Stream
+      operationId: CreateStream
+      parameters:
+      - description: The SID of the [Account](https://www.twilio.com/docs/iam/api/account)
+          that created this Stream resource.
+        in: path
+        name: AccountSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the [Call](https://www.twilio.com/docs/voice/api/call-resource)
+          the Stream resource is associated with.
+        in: path
+        name: CallSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                Name:
+                  description: The user-specified name of this Stream, if one was
+                    given when the Stream was created. This may be used to stop the
+                    Stream.
+                  type: string
+                Parameter1.Name:
+                  description: Parameter name
+                  type: string
+                Parameter1.Value:
+                  description: Parameter value
+                  type: string
+                Parameter10.Name:
+                  description: Parameter name
+                  type: string
+                Parameter10.Value:
+                  description: Parameter value
+                  type: string
+                Parameter11.Name:
+                  description: Parameter name
+                  type: string
+                Parameter11.Value:
+                  description: Parameter value
+                  type: string
+                Parameter12.Name:
+                  description: Parameter name
+                  type: string
+                Parameter12.Value:
+                  description: Parameter value
+                  type: string
+                Parameter13.Name:
+                  description: Parameter name
+                  type: string
+                Parameter13.Value:
+                  description: Parameter value
+                  type: string
+                Parameter14.Name:
+                  description: Parameter name
+                  type: string
+                Parameter14.Value:
+                  description: Parameter value
+                  type: string
+                Parameter15.Name:
+                  description: Parameter name
+                  type: string
+                Parameter15.Value:
+                  description: Parameter value
+                  type: string
+                Parameter16.Name:
+                  description: Parameter name
+                  type: string
+                Parameter16.Value:
+                  description: Parameter value
+                  type: string
+                Parameter17.Name:
+                  description: Parameter name
+                  type: string
+                Parameter17.Value:
+                  description: Parameter value
+                  type: string
+                Parameter18.Name:
+                  description: Parameter name
+                  type: string
+                Parameter18.Value:
+                  description: Parameter value
+                  type: string
+                Parameter19.Name:
+                  description: Parameter name
+                  type: string
+                Parameter19.Value:
+                  description: Parameter value
+                  type: string
+                Parameter2.Name:
+                  description: Parameter name
+                  type: string
+                Parameter2.Value:
+                  description: Parameter value
+                  type: string
+                Parameter20.Name:
+                  description: Parameter name
+                  type: string
+                Parameter20.Value:
+                  description: Parameter value
+                  type: string
+                Parameter21.Name:
+                  description: Parameter name
+                  type: string
+                Parameter21.Value:
+                  description: Parameter value
+                  type: string
+                Parameter22.Name:
+                  description: Parameter name
+                  type: string
+                Parameter22.Value:
+                  description: Parameter value
+                  type: string
+                Parameter23.Name:
+                  description: Parameter name
+                  type: string
+                Parameter23.Value:
+                  description: Parameter value
+                  type: string
+                Parameter24.Name:
+                  description: Parameter name
+                  type: string
+                Parameter24.Value:
+                  description: Parameter value
+                  type: string
+                Parameter25.Name:
+                  description: Parameter name
+                  type: string
+                Parameter25.Value:
+                  description: Parameter value
+                  type: string
+                Parameter26.Name:
+                  description: Parameter name
+                  type: string
+                Parameter26.Value:
+                  description: Parameter value
+                  type: string
+                Parameter27.Name:
+                  description: Parameter name
+                  type: string
+                Parameter27.Value:
+                  description: Parameter value
+                  type: string
+                Parameter28.Name:
+                  description: Parameter name
+                  type: string
+                Parameter28.Value:
+                  description: Parameter value
+                  type: string
+                Parameter29.Name:
+                  description: Parameter name
+                  type: string
+                Parameter29.Value:
+                  description: Parameter value
+                  type: string
+                Parameter3.Name:
+                  description: Parameter name
+                  type: string
+                Parameter3.Value:
+                  description: Parameter value
+                  type: string
+                Parameter30.Name:
+                  description: Parameter name
+                  type: string
+                Parameter30.Value:
+                  description: Parameter value
+                  type: string
+                Parameter31.Name:
+                  description: Parameter name
+                  type: string
+                Parameter31.Value:
+                  description: Parameter value
+                  type: string
+                Parameter32.Name:
+                  description: Parameter name
+                  type: string
+                Parameter32.Value:
+                  description: Parameter value
+                  type: string
+                Parameter33.Name:
+                  description: Parameter name
+                  type: string
+                Parameter33.Value:
+                  description: Parameter value
+                  type: string
+                Parameter34.Name:
+                  description: Parameter name
+                  type: string
+                Parameter34.Value:
+                  description: Parameter value
+                  type: string
+                Parameter35.Name:
+                  description: Parameter name
+                  type: string
+                Parameter35.Value:
+                  description: Parameter value
+                  type: string
+                Parameter36.Name:
+                  description: Parameter name
+                  type: string
+                Parameter36.Value:
+                  description: Parameter value
+                  type: string
+                Parameter37.Name:
+                  description: Parameter name
+                  type: string
+                Parameter37.Value:
+                  description: Parameter value
+                  type: string
+                Parameter38.Name:
+                  description: Parameter name
+                  type: string
+                Parameter38.Value:
+                  description: Parameter value
+                  type: string
+                Parameter39.Name:
+                  description: Parameter name
+                  type: string
+                Parameter39.Value:
+                  description: Parameter value
+                  type: string
+                Parameter4.Name:
+                  description: Parameter name
+                  type: string
+                Parameter4.Value:
+                  description: Parameter value
+                  type: string
+                Parameter40.Name:
+                  description: Parameter name
+                  type: string
+                Parameter40.Value:
+                  description: Parameter value
+                  type: string
+                Parameter41.Name:
+                  description: Parameter name
+                  type: string
+                Parameter41.Value:
+                  description: Parameter value
+                  type: string
+                Parameter42.Name:
+                  description: Parameter name
+                  type: string
+                Parameter42.Value:
+                  description: Parameter value
+                  type: string
+                Parameter43.Name:
+                  description: Parameter name
+                  type: string
+                Parameter43.Value:
+                  description: Parameter value
+                  type: string
+                Parameter44.Name:
+                  description: Parameter name
+                  type: string
+                Parameter44.Value:
+                  description: Parameter value
+                  type: string
+                Parameter45.Name:
+                  description: Parameter name
+                  type: string
+                Parameter45.Value:
+                  description: Parameter value
+                  type: string
+                Parameter46.Name:
+                  description: Parameter name
+                  type: string
+                Parameter46.Value:
+                  description: Parameter value
+                  type: string
+                Parameter47.Name:
+                  description: Parameter name
+                  type: string
+                Parameter47.Value:
+                  description: Parameter value
+                  type: string
+                Parameter48.Name:
+                  description: Parameter name
+                  type: string
+                Parameter48.Value:
+                  description: Parameter value
+                  type: string
+                Parameter49.Name:
+                  description: Parameter name
+                  type: string
+                Parameter49.Value:
+                  description: Parameter value
+                  type: string
+                Parameter5.Name:
+                  description: Parameter name
+                  type: string
+                Parameter5.Value:
+                  description: Parameter value
+                  type: string
+                Parameter50.Name:
+                  description: Parameter name
+                  type: string
+                Parameter50.Value:
+                  description: Parameter value
+                  type: string
+                Parameter51.Name:
+                  description: Parameter name
+                  type: string
+                Parameter51.Value:
+                  description: Parameter value
+                  type: string
+                Parameter52.Name:
+                  description: Parameter name
+                  type: string
+                Parameter52.Value:
+                  description: Parameter value
+                  type: string
+                Parameter53.Name:
+                  description: Parameter name
+                  type: string
+                Parameter53.Value:
+                  description: Parameter value
+                  type: string
+                Parameter54.Name:
+                  description: Parameter name
+                  type: string
+                Parameter54.Value:
+                  description: Parameter value
+                  type: string
+                Parameter55.Name:
+                  description: Parameter name
+                  type: string
+                Parameter55.Value:
+                  description: Parameter value
+                  type: string
+                Parameter56.Name:
+                  description: Parameter name
+                  type: string
+                Parameter56.Value:
+                  description: Parameter value
+                  type: string
+                Parameter57.Name:
+                  description: Parameter name
+                  type: string
+                Parameter57.Value:
+                  description: Parameter value
+                  type: string
+                Parameter58.Name:
+                  description: Parameter name
+                  type: string
+                Parameter58.Value:
+                  description: Parameter value
+                  type: string
+                Parameter59.Name:
+                  description: Parameter name
+                  type: string
+                Parameter59.Value:
+                  description: Parameter value
+                  type: string
+                Parameter6.Name:
+                  description: Parameter name
+                  type: string
+                Parameter6.Value:
+                  description: Parameter value
+                  type: string
+                Parameter60.Name:
+                  description: Parameter name
+                  type: string
+                Parameter60.Value:
+                  description: Parameter value
+                  type: string
+                Parameter61.Name:
+                  description: Parameter name
+                  type: string
+                Parameter61.Value:
+                  description: Parameter value
+                  type: string
+                Parameter62.Name:
+                  description: Parameter name
+                  type: string
+                Parameter62.Value:
+                  description: Parameter value
+                  type: string
+                Parameter63.Name:
+                  description: Parameter name
+                  type: string
+                Parameter63.Value:
+                  description: Parameter value
+                  type: string
+                Parameter64.Name:
+                  description: Parameter name
+                  type: string
+                Parameter64.Value:
+                  description: Parameter value
+                  type: string
+                Parameter65.Name:
+                  description: Parameter name
+                  type: string
+                Parameter65.Value:
+                  description: Parameter value
+                  type: string
+                Parameter66.Name:
+                  description: Parameter name
+                  type: string
+                Parameter66.Value:
+                  description: Parameter value
+                  type: string
+                Parameter67.Name:
+                  description: Parameter name
+                  type: string
+                Parameter67.Value:
+                  description: Parameter value
+                  type: string
+                Parameter68.Name:
+                  description: Parameter name
+                  type: string
+                Parameter68.Value:
+                  description: Parameter value
+                  type: string
+                Parameter69.Name:
+                  description: Parameter name
+                  type: string
+                Parameter69.Value:
+                  description: Parameter value
+                  type: string
+                Parameter7.Name:
+                  description: Parameter name
+                  type: string
+                Parameter7.Value:
+                  description: Parameter value
+                  type: string
+                Parameter70.Name:
+                  description: Parameter name
+                  type: string
+                Parameter70.Value:
+                  description: Parameter value
+                  type: string
+                Parameter71.Name:
+                  description: Parameter name
+                  type: string
+                Parameter71.Value:
+                  description: Parameter value
+                  type: string
+                Parameter72.Name:
+                  description: Parameter name
+                  type: string
+                Parameter72.Value:
+                  description: Parameter value
+                  type: string
+                Parameter73.Name:
+                  description: Parameter name
+                  type: string
+                Parameter73.Value:
+                  description: Parameter value
+                  type: string
+                Parameter74.Name:
+                  description: Parameter name
+                  type: string
+                Parameter74.Value:
+                  description: Parameter value
+                  type: string
+                Parameter75.Name:
+                  description: Parameter name
+                  type: string
+                Parameter75.Value:
+                  description: Parameter value
+                  type: string
+                Parameter76.Name:
+                  description: Parameter name
+                  type: string
+                Parameter76.Value:
+                  description: Parameter value
+                  type: string
+                Parameter77.Name:
+                  description: Parameter name
+                  type: string
+                Parameter77.Value:
+                  description: Parameter value
+                  type: string
+                Parameter78.Name:
+                  description: Parameter name
+                  type: string
+                Parameter78.Value:
+                  description: Parameter value
+                  type: string
+                Parameter79.Name:
+                  description: Parameter name
+                  type: string
+                Parameter79.Value:
+                  description: Parameter value
+                  type: string
+                Parameter8.Name:
+                  description: Parameter name
+                  type: string
+                Parameter8.Value:
+                  description: Parameter value
+                  type: string
+                Parameter80.Name:
+                  description: Parameter name
+                  type: string
+                Parameter80.Value:
+                  description: Parameter value
+                  type: string
+                Parameter81.Name:
+                  description: Parameter name
+                  type: string
+                Parameter81.Value:
+                  description: Parameter value
+                  type: string
+                Parameter82.Name:
+                  description: Parameter name
+                  type: string
+                Parameter82.Value:
+                  description: Parameter value
+                  type: string
+                Parameter83.Name:
+                  description: Parameter name
+                  type: string
+                Parameter83.Value:
+                  description: Parameter value
+                  type: string
+                Parameter84.Name:
+                  description: Parameter name
+                  type: string
+                Parameter84.Value:
+                  description: Parameter value
+                  type: string
+                Parameter85.Name:
+                  description: Parameter name
+                  type: string
+                Parameter85.Value:
+                  description: Parameter value
+                  type: string
+                Parameter86.Name:
+                  description: Parameter name
+                  type: string
+                Parameter86.Value:
+                  description: Parameter value
+                  type: string
+                Parameter87.Name:
+                  description: Parameter name
+                  type: string
+                Parameter87.Value:
+                  description: Parameter value
+                  type: string
+                Parameter88.Name:
+                  description: Parameter name
+                  type: string
+                Parameter88.Value:
+                  description: Parameter value
+                  type: string
+                Parameter89.Name:
+                  description: Parameter name
+                  type: string
+                Parameter89.Value:
+                  description: Parameter value
+                  type: string
+                Parameter9.Name:
+                  description: Parameter name
+                  type: string
+                Parameter9.Value:
+                  description: Parameter value
+                  type: string
+                Parameter90.Name:
+                  description: Parameter name
+                  type: string
+                Parameter90.Value:
+                  description: Parameter value
+                  type: string
+                Parameter91.Name:
+                  description: Parameter name
+                  type: string
+                Parameter91.Value:
+                  description: Parameter value
+                  type: string
+                Parameter92.Name:
+                  description: Parameter name
+                  type: string
+                Parameter92.Value:
+                  description: Parameter value
+                  type: string
+                Parameter93.Name:
+                  description: Parameter name
+                  type: string
+                Parameter93.Value:
+                  description: Parameter value
+                  type: string
+                Parameter94.Name:
+                  description: Parameter name
+                  type: string
+                Parameter94.Value:
+                  description: Parameter value
+                  type: string
+                Parameter95.Name:
+                  description: Parameter name
+                  type: string
+                Parameter95.Value:
+                  description: Parameter value
+                  type: string
+                Parameter96.Name:
+                  description: Parameter name
+                  type: string
+                Parameter96.Value:
+                  description: Parameter value
+                  type: string
+                Parameter97.Name:
+                  description: Parameter name
+                  type: string
+                Parameter97.Value:
+                  description: Parameter value
+                  type: string
+                Parameter98.Name:
+                  description: Parameter name
+                  type: string
+                Parameter98.Value:
+                  description: Parameter value
+                  type: string
+                Parameter99.Name:
+                  description: Parameter name
+                  type: string
+                Parameter99.Value:
+                  description: Parameter value
+                  type: string
+                StatusCallback:
+                  description: Absolute URL of the status callback.
+                  format: uri
+                  type: string
+                StatusCallbackMethod:
+                  description: The http method for the status_callback (one of GET,
+                    POST).
+                  enum:
+                  - HEAD
+                  - GET
+                  - POST
+                  - PATCH
+                  - PUT
+                  - DELETE
+                  format: http-method
+                  type: string
+                Track:
+                  description: One of `inbound_track`, `outbound_track`, `both_tracks`.
+                  enum:
+                  - inbound_track
+                  - outbound_track
+                  - both_tracks
+                  type: string
+                Url:
+                  description: Relative or absolute url where WebSocket connection
+                    will be established.
+                  format: uri
+                  type: string
+              required:
+              - Url
+              title: CreateStreamRequest
+              type: object
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.v2010.account.call.stream'
+          description: Created
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties:
+      - call_sid
+      - name
+      parent: /Accounts/{AccountSid}/Calls.json
+      pathType: list
+  /2010-04-01/Accounts/{AccountSid}/Calls/{CallSid}/Streams/{Sid}.json:
+    description: 'TODO: Resource-level docs'
+    post:
+      description: Stop a Stream using either the SID of the Stream resource or the
+        `name` used when creating the resource
+      operationId: UpdateStream
+      parameters:
+      - description: The SID of the [Account](https://www.twilio.com/docs/iam/api/account)
+          that created this Stream resource.
+        in: path
+        name: AccountSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^AC[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the [Call](https://www.twilio.com/docs/voice/api/call-resource)
+          the Stream resource is associated with.
+        in: path
+        name: CallSid
+        required: true
+        schema:
+          maxLength: 34
+          minLength: 34
+          pattern: ^CA[0-9a-fA-F]{32}$
+          type: string
+      - description: The SID of the Stream resource, or the `name` used when creating
+          the resource
+        in: path
+        name: Sid
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              properties:
+                Status:
+                  description: The status. Must have the value `stopped`
+                  enum:
+                  - stopped
+                  type: string
+              required:
+              - Status
+              title: UpdateStreamRequest
+              type: object
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/api.v2010.account.call.stream'
+          description: OK
+      security:
+      - accountSid_authToken: []
+      x-maturity:
+      - GA
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties:
+      - call_sid
+      - name
+      parent: /Accounts/{AccountSid}/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Calls/{Sid}.json:
     delete:
@@ -12052,6 +13909,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 FallbackUrl:
                   description: The URL that we call using the `fallback_method` if
@@ -12071,6 +13929,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Status:
                   description: 'The new status of the resource. Can be: `canceled`
@@ -12102,6 +13961,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TimeLimit:
                   description: The maximum duration of the call in seconds. Constraints
@@ -12141,6 +14001,7 @@ paths:
       - to
       - status
       - start_time
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Conferences.json:
     description: Voice call conferences
@@ -12280,6 +14141,7 @@ paths:
       - sid
       - friendly_name
       - status
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants.json:
     description: Conference participants
@@ -12466,6 +14328,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 ConferenceStatusCallback:
                   description: The URL we should call using the `conference_status_callback_method`
@@ -12493,6 +14356,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 ConferenceTrim:
                   description: 'Whether to trim leading and trailing silence from
@@ -12571,6 +14435,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 RecordingTrack:
                   description: 'The audio track to record for the call. Can be: `inbound`,
@@ -12620,6 +14485,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TimeLimit:
                   description: The maximum duration of the call in seconds. Constraints
@@ -12651,6 +14517,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 WaitUrl:
                   description: The URL we should call using the `wait_method` for
@@ -12684,6 +14551,7 @@ paths:
       - status
       - muted
       - hold
+      parent: /Accounts/{AccountSid}/Conferences.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Participants/{CallSid}.json:
     delete:
@@ -12816,6 +14684,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 AnnounceUrl:
                   description: The URL we call using the `announce_method` for an
@@ -12861,6 +14730,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 HoldUrl:
                   description: The URL we call using the `hold_method` for  music
@@ -12886,6 +14756,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 WaitUrl:
                   description: The URL we should call using the `wait_method` for
@@ -12916,6 +14787,7 @@ paths:
       - status
       - muted
       - hold
+      parent: /Accounts/{AccountSid}/Conferences.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Recordings.json:
     description: Recordings of conferences
@@ -13028,6 +14900,7 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts/{AccountSid}/Conferences.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Conferences/{ConferenceSid}/Recordings/{Sid}.json:
     delete:
@@ -13197,6 +15070,7 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts/{AccountSid}/Conferences.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Conferences/{Sid}.json:
     description: Voice call conferences
@@ -13271,6 +15145,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 AnnounceUrl:
                   description: The URL we should call to announce something into the
@@ -13305,6 +15180,7 @@ paths:
       - sid
       - friendly_name
       - status
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/ConnectApps.json:
     description: Twilio Connect apps
@@ -13374,6 +15250,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/ConnectApps/{Sid}.json:
     delete:
@@ -13489,6 +15366,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 DeauthorizeCallbackUrl:
                   description: The URL to call using the `deauthorize_callback_method`
@@ -13536,6 +15414,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers.json:
     description: Incoming phone numbers on a Twilio account/project
@@ -13571,6 +15450,7 @@ paths:
         in: query
         name: PhoneNumber
         schema:
+          format: phone-number
           type: string
       - description: 'Whether to include phone numbers based on their origin. Can
           be: `twilio` or `hosted`. By default, phone numbers of all origin are included.'
@@ -13677,8 +15557,9 @@ paths:
                   pattern: ^AD[0-9a-fA-F]{32}$
                   type: string
                 EmergencyStatus:
-                  description: The configuration status parameter that determines
-                    whether the new phone number is enabled for emergency calling.
+                  description: The parameter displays if emergency calling is enabled
+                    for this number. Active numbers may place emergency calls by dialing
+                    valid emergency numbers for the country.
                   enum:
                   - Active
                   - Inactive
@@ -13701,6 +15582,7 @@ paths:
                     format.  E.164 phone numbers consist of a + followed by the country
                     code and subscriber number without punctuation characters. For
                     example, +14155551234.
+                  format: phone-number
                   type: string
                 SmsApplicationSid:
                   description: The SID of the application that should handle SMS messages
@@ -13721,6 +15603,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -13737,6 +15620,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when the new phone number receives
@@ -13758,6 +15642,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TrunkSid:
                   description: The SID of the Trunk we should use to handle calls
@@ -13794,6 +15679,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -13810,6 +15696,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceReceiveMode:
                   description: 'The configuration parameter for the new phone number
@@ -13838,6 +15725,10 @@ paths:
       - accountSid_authToken: []
       x-maturity:
       - GA
+      x-twilio:
+        conditional:
+        - - phone_number
+          - area_code
     servers:
     - url: https://api.twilio.com
     x-twilio:
@@ -13845,6 +15736,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/Local.json:
     description: Incoming local phone numbers on a Twilio account/project
@@ -13878,6 +15770,7 @@ paths:
         in: query
         name: PhoneNumber
         schema:
+          format: phone-number
           type: string
       - description: 'Whether to include phone numbers based on their origin. Can
           be: `twilio` or `hosted`. By default, phone numbers of all origin are included.'
@@ -13977,8 +15870,9 @@ paths:
                   pattern: ^AD[0-9a-fA-F]{32}$
                   type: string
                 EmergencyStatus:
-                  description: The configuration status parameter that determines
-                    whether the new phone number is enabled for emergency calling.
+                  description: The parameter displays if emergency calling is enabled
+                    for this number. Active numbers may place emergency calls by dialing
+                    valid emergency numbers for the country.
                   enum:
                   - Active
                   - Inactive
@@ -14001,6 +15895,7 @@ paths:
                     format.  E.164 phone numbers consist of a + followed by the country
                     code and subscriber number without punctuation characters. For
                     example, +14155551234.
+                  format: phone-number
                   type: string
                 SmsApplicationSid:
                   description: The SID of the application that should handle SMS messages
@@ -14021,6 +15916,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -14037,6 +15933,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when the new phone number receives
@@ -14058,6 +15955,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TrunkSid:
                   description: The SID of the Trunk we should use to handle calls
@@ -14094,6 +15992,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -14110,6 +16009,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceReceiveMode:
                   description: 'The configuration parameter for the new phone number
@@ -14147,6 +16047,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/Mobile.json:
     description: Incoming mobile phone numbers on a Twilio account/project
@@ -14180,6 +16081,7 @@ paths:
         in: query
         name: PhoneNumber
         schema:
+          format: phone-number
           type: string
       - description: 'Whether to include phone numbers based on their origin. Can
           be: `twilio` or `hosted`. By default, phone numbers of all origin are included.'
@@ -14279,8 +16181,9 @@ paths:
                   pattern: ^AD[0-9a-fA-F]{32}$
                   type: string
                 EmergencyStatus:
-                  description: The configuration status parameter that determines
-                    whether the new phone number is enabled for emergency calling.
+                  description: The parameter displays if emergency calling is enabled
+                    for this number. Active numbers may place emergency calls by dialing
+                    valid emergency numbers for the country.
                   enum:
                   - Active
                   - Inactive
@@ -14303,6 +16206,7 @@ paths:
                     format.  E.164 phone numbers consist of a + followed by the country
                     code and subscriber number without punctuation characters. For
                     example, +14155551234.
+                  format: phone-number
                   type: string
                 SmsApplicationSid:
                   description: The SID of the application that should handle SMS messages
@@ -14322,6 +16226,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -14338,6 +16243,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when the new phone number receives
@@ -14359,6 +16265,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TrunkSid:
                   description: The SID of the Trunk we should use to handle calls
@@ -14395,6 +16302,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -14411,6 +16319,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceReceiveMode:
                   description: 'The configuration parameter for the new phone number
@@ -14448,6 +16357,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/TollFree.json:
     description: Incoming toll free phone numbers on a Twilio account/project
@@ -14481,6 +16391,7 @@ paths:
         in: query
         name: PhoneNumber
         schema:
+          format: phone-number
           type: string
       - description: 'Whether to include phone numbers based on their origin. Can
           be: `twilio` or `hosted`. By default, phone numbers of all origin are included.'
@@ -14580,8 +16491,9 @@ paths:
                   pattern: ^AD[0-9a-fA-F]{32}$
                   type: string
                 EmergencyStatus:
-                  description: The configuration status parameter that determines
-                    whether the new phone number is enabled for emergency calling.
+                  description: The parameter displays if emergency calling is enabled
+                    for this number. Active numbers may place emergency calls by dialing
+                    valid emergency numbers for the country.
                   enum:
                   - Active
                   - Inactive
@@ -14604,6 +16516,7 @@ paths:
                     format.  E.164 phone numbers consist of a + followed by the country
                     code and subscriber number without punctuation characters. For
                     example, +14155551234.
+                  format: phone-number
                   type: string
                 SmsApplicationSid:
                   description: The SID of the application that should handle SMS messages
@@ -14623,6 +16536,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -14639,6 +16553,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when the new phone number receives
@@ -14660,6 +16575,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TrunkSid:
                   description: The SID of the Trunk we should use to handle calls
@@ -14696,6 +16612,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -14712,6 +16629,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceReceiveMode:
                   description: 'The configuration parameter for the new phone number
@@ -14749,6 +16667,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns.json:
     description: 'TODO: Resource-level docs'
@@ -14878,6 +16797,7 @@ paths:
       - unique_name
       - friendly_name
       - description
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns/{AssignedAddOnSid}/Extensions.json:
     description: 'TODO: Resource-level docs'
@@ -14961,11 +16881,13 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: assigned_add_on_extension
       defaultOutputProperties:
       - sid
       - unique_name
       - friendly_name
       - product_name
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns.json
       pathType: list
   ? /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns/{AssignedAddOnSid}/Extensions/{Sid}.json
   : description: 'TODO: Resource-level docs'
@@ -15025,11 +16947,13 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: assigned_add_on_extension
       defaultOutputProperties:
       - sid
       - unique_name
       - friendly_name
       - product_name
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{ResourceSid}/AssignedAddOns/{Sid}.json:
     delete:
@@ -15127,6 +17051,7 @@ paths:
       - unique_name
       - friendly_name
       - description
+      parent: /Accounts/{AccountSid}/IncomingPhoneNumbers.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/IncomingPhoneNumbers/{Sid}.json:
     delete:
@@ -15264,8 +17189,9 @@ paths:
                   pattern: ^AD[0-9a-fA-F]{32}$
                   type: string
                 EmergencyStatus:
-                  description: The configuration status parameter that determines
-                    whether the phone number is enabled for emergency calling.
+                  description: The parameter displays if emergency calling is enabled
+                    for this number. Active numbers may place emergency calls by dialing
+                    valid emergency numbers for the country.
                   enum:
                   - Active
                   - Inactive
@@ -15301,6 +17227,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -15317,6 +17244,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when the phone number receives
@@ -15338,6 +17266,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 TrunkSid:
                   description: The SID of the Trunk we should use to handle phone
@@ -15374,6 +17303,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs retrieving
@@ -15390,6 +17320,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceReceiveMode:
                   description: 'The configuration parameter for the phone number to
@@ -15425,6 +17356,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Keys.json:
     description: API keys
@@ -15526,10 +17458,12 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: new_key
       defaultOutputProperties:
       - sid
       - friendly_name
       - date_created
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Keys/{Sid}.json:
     delete:
@@ -15652,6 +17586,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Messages.json:
     description: A Message resource represents an inbound or outbound message.
@@ -15674,12 +17609,14 @@ paths:
         in: query
         name: To
         schema:
+          format: phone-number
           type: string
       - description: Read messages sent from only this phone number or alphanumeric
           sender ID.
         in: query
         name: From
         schema:
+          format: phone-number
           type: string
       - description: 'The date of the messages to show. Specify a date as `YYYY-MM-DD`
           in GMT to read only messages sent on this date. For example: `2009-07-06`.
@@ -15818,6 +17755,7 @@ paths:
                     purchased from Twilio also work here. You cannot, for example,
                     spoof messages from a private cell phone number. If you are using
                     `messaging_service_sid`, this parameter must be empty.
+                  format: phone-number
                   type: string
                 MaxPrice:
                   description: The maximum total price in US dollars that you will
@@ -15865,6 +17803,21 @@ paths:
                     using the [Message Feedback API](https://www.twilio.com/docs/sms/api/message-feedback-resource).
                     This parameter is `false` by default.
                   type: boolean
+                ScheduleType:
+                  description: Indicates your intent to schedule a message. Pass the
+                    value `fixed` to schedule a message at a fixed time.
+                  enum:
+                  - fixed
+                  type: string
+                SendAsMms:
+                  description: If set to True, Twilio will deliver the message as
+                    a single MMS message, regardless of the presence of media.
+                  type: boolean
+                SendAt:
+                  description: The time that Twilio will send the message. Must be
+                    in ISO 8601 format.
+                  format: date-time
+                  type: string
                 SmartEncoded:
                   description: 'Whether to detect Unicode characters that have a similar
                     GSM-7 character and replace them. Can be: `true` or `false`.'
@@ -15886,6 +17839,7 @@ paths:
                   description: The destination phone number in [E.164](https://www.twilio.com/docs/glossary/what-e164)
                     format for SMS/MMS or [Channel user address](https://www.twilio.com/docs/sms/channels#channel-addresses)
                     for other 3rd-party channels.
+                  format: phone-number
                   type: string
                 ValidityPeriod:
                   description: How long in seconds the message can remain in our outgoing
@@ -15911,6 +17865,12 @@ paths:
       - accountSid_authToken: []
       x-maturity:
       - GA
+      x-twilio:
+        conditional:
+        - - from
+          - messaging_service_sid
+        - - body
+          - media_url
     servers:
     - url: https://api.twilio.com
     x-twilio:
@@ -15921,6 +17881,7 @@ paths:
       - status
       - direction
       - date_sent
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Messages/{MessageSid}/Feedback.json:
     description: Customer-provided feedback on delivery confirmation
@@ -15982,6 +17943,7 @@ paths:
       - message_sid
       - outcome
       - date_created
+      parent: /Accounts/{AccountSid}/Messages.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Messages/{MessageSid}/Media.json:
     description: The Media resource represents a piece of media, such as an image,
@@ -16093,6 +18055,7 @@ paths:
       - sid
       - parent_sid
       - content_type
+      parent: /Accounts/{AccountSid}/Messages.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Messages/{MessageSid}/Media/{Sid}.json:
     delete:
@@ -16192,6 +18155,7 @@ paths:
       - sid
       - parent_sid
       - content_type
+      parent: /Accounts/{AccountSid}/Messages.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Messages/{Sid}.json:
     delete:
@@ -16295,6 +18259,12 @@ paths:
                   description: The text of the message you want to send. Can be up
                     to 1,600 characters long.
                   type: string
+                Status:
+                  description: When set as `canceled`, allows a message cancelation
+                    request if a message has not yet been sent.
+                  enum:
+                  - canceled
+                  type: string
               title: UpdateMessageRequest
               type: object
       responses:
@@ -16318,6 +18288,7 @@ paths:
       - status
       - direction
       - date_sent
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Notifications.json:
     description: '[DEPRECATED] Log entries'
@@ -16423,6 +18394,7 @@ paths:
       - call_sid
       - error_code
       - message_date
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Notifications/{Sid}.json:
     description: '[DEPRECATED] Log entries'
@@ -16470,6 +18442,7 @@ paths:
       - call_sid
       - error_code
       - message_date
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/OutgoingCallerIds.json:
     description: An OutgoingCallerId resource represents a single verified number
@@ -16494,6 +18467,7 @@ paths:
         in: query
         name: PhoneNumber
         schema:
+          format: phone-number
           type: string
       - description: The string that identifies the OutgoingCallerId resources to
           read.
@@ -16583,6 +18557,7 @@ paths:
                   description: The phone number to verify in [E.164](https://www.twilio.com/docs/glossary/what-e164)
                     format, which consists of a + followed by the country code and
                     subscriber number.
+                  format: phone-number
                   type: string
                 StatusCallback:
                   description: The URL we should call using the `status_callback_method`
@@ -16600,6 +18575,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
               required:
               - PhoneNumber
@@ -16619,10 +18595,12 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: validation_request
       defaultOutputProperties:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/OutgoingCallerIds/{Sid}.json:
     delete:
@@ -16748,6 +18726,7 @@ paths:
       - sid
       - phone_number
       - friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Queues.json:
     description: Queues of calls
@@ -16861,6 +18840,7 @@ paths:
       - friendly_name
       - current_size
       - average_wait_time
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Queues/{QueueSid}/Members.json:
     description: Calls in a call queue
@@ -16940,6 +18920,7 @@ paths:
       - date_enqueued
       - position
       - wait_time
+      parent: /Accounts/{AccountSid}/Queues.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Queues/{QueueSid}/Members/{CallSid}.json:
     description: Calls in a call queue
@@ -17031,6 +19012,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 Url:
                   description: The absolute URL of the Queue resource.
@@ -17059,6 +19041,7 @@ paths:
       - date_enqueued
       - position
       - wait_time
+      parent: /Accounts/{AccountSid}/Queues.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Queues/{Sid}.json:
     delete:
@@ -17186,6 +19169,7 @@ paths:
       - friendly_name
       - current_size
       - average_wait_time
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Recordings.json:
     description: Recordings of phone calls
@@ -17255,6 +19239,13 @@ paths:
           minLength: 34
           pattern: ^CF[0-9a-fA-F]{32}$
           type: string
+      - description: A boolean parameter indicating whether to retrieve soft deleted
+          recordings or not. Recordings metadata are kept after deletion for a retention
+          period of 40 days.
+        in: query
+        name: IncludeSoftDeleted
+        schema:
+          type: boolean
       - description: How many resources to return in each list page. The default is
           50, and the maximum is 1000.
         in: query
@@ -17309,6 +19300,7 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Recordings/{RecordingSid}/Transcriptions.json:
     description: References to text transcriptions of call recordings
@@ -17389,6 +19381,7 @@ paths:
       - type
       - status
       - duration
+      parent: /Accounts/{AccountSid}/Recordings.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Recordings/{RecordingSid}/Transcriptions/{Sid}.json:
     delete:
@@ -17486,6 +19479,7 @@ paths:
       - type
       - status
       - duration
+      parent: /Accounts/{AccountSid}/Recordings.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults.json:
     description: The results of an Add-on API call
@@ -17565,6 +19559,7 @@ paths:
       - status
       - add_on_sid
       - date_created
+      parent: /Accounts/{AccountSid}/Recordings.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults/{AddOnResultSid}/Payloads.json:
     description: A single Add-on results' payload
@@ -17653,6 +19648,7 @@ paths:
       - sid
       - label
       - content_type
+      parent: /Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults/{AddOnResultSid}/Payloads/{Sid}.json:
     delete:
@@ -17767,6 +19763,7 @@ paths:
       - sid
       - label
       - content_type
+      parent: /Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Recordings/{ReferenceSid}/AddOnResults/{Sid}.json:
     delete:
@@ -17862,6 +19859,7 @@ paths:
       - status
       - add_on_sid
       - date_created
+      parent: /Accounts/{AccountSid}/Recordings.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Recordings/{Sid}.json:
     delete:
@@ -17920,6 +19918,13 @@ paths:
           minLength: 34
           pattern: ^RE[0-9a-fA-F]{32}$
           type: string
+      - description: A boolean parameter indicating whether to retrieve soft deleted
+          recordings or not. Recordings metadata are kept after deletion for a retention
+          period of 40 days.
+        in: query
+        name: IncludeSoftDeleted
+        schema:
+          type: boolean
       responses:
         '200':
           content:
@@ -17940,7 +19945,16 @@ paths:
       - status
       - start_time
       - duration
+      parent: /Accounts.json
       pathType: instance
+  /2010-04-01/Accounts/{AccountSid}/SIP.json:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties: []
+      parent: /Accounts.json
+      pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/CredentialLists.json:
     description: Lists of SIP credentials
     get:
@@ -18044,6 +20058,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/CredentialLists/{CredentialListSid}/Credentials.json:
     description: Username and password information for SIP Domains
@@ -18177,6 +20192,7 @@ paths:
       - sid
       - username
       - credential_list_sid
+      parent: /Accounts/{AccountSid}/SIP/CredentialLists.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/CredentialLists/{CredentialListSid}/Credentials/{Sid}.json:
     delete:
@@ -18324,6 +20340,7 @@ paths:
       - sid
       - username
       - credential_list_sid
+      parent: /Accounts/{AccountSid}/SIP/CredentialLists.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/CredentialLists/{Sid}.json:
     delete:
@@ -18441,6 +20458,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains.json:
     description: Custom DNS hostnames that can accept SIP traffic
@@ -18573,6 +20591,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -18589,6 +20608,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceStatusCallbackMethod:
                   description: 'The HTTP method we should use to call `voice_status_callback_url`.
@@ -18600,6 +20620,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceStatusCallbackUrl:
                   description: The URL that we should call to pass status parameters
@@ -18632,6 +20653,25 @@ paths:
       - sid
       - domain_name
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
+      pathType: list
+  /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth.json:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      className: auth_types
+      defaultOutputProperties: []
+      parent: /Accounts/{AccountSid}/SIP/Domains.json
+      pathType: list
+  /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls.json:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      className: auth_type_calls
+      defaultOutputProperties: []
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls/CredentialListMappings.json:
     description: Credential lists for SIP calls
@@ -18757,9 +20797,11 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_calls_credential_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls/CredentialListMappings/{Sid}.json:
     delete:
@@ -18850,9 +20892,11 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_calls_credential_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls/IpAccessControlListMappings.json:
     description: IP address lists for SIP calls
@@ -18978,9 +21022,11 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_calls_ip_access_control_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls/IpAccessControlListMappings/{Sid}.json:
     delete:
@@ -19071,10 +21117,21 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_calls_ip_access_control_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Calls.json
       pathType: instance
+  /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Registrations.json:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      className: auth_type_registrations
+      defaultOutputProperties: []
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth.json
+      pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Registrations/CredentialListMappings.json:
     description: Credential lists for SIP registrations
     get:
@@ -19199,9 +21256,11 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_registrations_credential_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Registrations.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Registrations/CredentialListMappings/{Sid}.json:
     delete:
@@ -19292,9 +21351,11 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: auth_registrations_credential_list_mapping
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains/{DomainSid}/Auth/Registrations.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/CredentialListMappings.json:
     description: Credential lists associated with a SIP Domain
@@ -19424,6 +21485,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/CredentialListMappings/{Sid}.json:
     delete:
@@ -19519,6 +21581,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/IpAccessControlListMappings.json:
     description: Access control lists associated with a SIP Domain
@@ -19644,6 +21707,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{DomainSid}/IpAccessControlListMappings/{Sid}.json:
     delete:
@@ -19735,6 +21799,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/Domains.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/Domains/{Sid}.json:
     delete:
@@ -19883,6 +21948,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceFallbackUrl:
                   description: The URL that we should call when an error occurs while
@@ -19898,6 +21964,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceStatusCallbackMethod:
                   description: 'The HTTP method we should use to call `voice_status_callback_url`.
@@ -19909,6 +21976,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 VoiceStatusCallbackUrl:
                   description: The URL that we should call to pass status parameters
@@ -19939,6 +22007,7 @@ paths:
       - sid
       - domain_name
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/IpAccessControlLists.json:
     description: Access control lists of IP address resources
@@ -20046,6 +22115,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses.json:
     description: IP addresses that have access to a SIP Domain
@@ -20184,6 +22254,7 @@ paths:
       - sid
       - ip_address
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/IpAccessControlLists.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SIP/IpAccessControlLists/{IpAccessControlListSid}/IpAddresses/{Sid}.json:
     delete:
@@ -20346,6 +22417,7 @@ paths:
       - sid
       - ip_address
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP/IpAccessControlLists.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SIP/IpAccessControlLists/{Sid}.json:
     delete:
@@ -20469,6 +22541,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts/{AccountSid}/SIP.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SMS/ShortCodes.json:
     description: Messaging short codes
@@ -20550,6 +22623,7 @@ paths:
       - sid
       - short_code
       - friendly_name
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SMS/ShortCodes/{Sid}.json:
     description: Messaging short codes
@@ -20636,6 +22710,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsFallbackUrl:
                   description: The URL that we should call if an error occurs while
@@ -20652,6 +22727,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 SmsUrl:
                   description: The URL we should call when receiving an incoming SMS
@@ -20678,6 +22754,7 @@ paths:
       - sid
       - short_code
       - friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/SigningKeys.json:
     description: Create a new signing key
@@ -20778,10 +22855,12 @@ paths:
     servers:
     - url: https://api.twilio.com
     x-twilio:
+      className: new_signing_key
       defaultOutputProperties:
       - sid
       - friendly_name
       - secret
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/SigningKeys/{Sid}.json:
     delete:
@@ -20896,6 +22975,7 @@ paths:
       defaultOutputProperties:
       - sid
       - friendly_name
+      parent: /Accounts.json
       pathType: instance
   /2010-04-01/Accounts/{AccountSid}/Tokens.json:
     description: Credentials for ICE servers
@@ -20941,6 +23021,7 @@ paths:
       defaultOutputProperties:
       - username
       - ice_servers
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Transcriptions.json:
     description: Text transcriptions of call recordings
@@ -21012,6 +23093,7 @@ paths:
       - type
       - status
       - duration
+      parent: /Accounts.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Transcriptions/{Sid}.json:
     delete:
@@ -21089,7 +23171,16 @@ paths:
       - type
       - status
       - duration
+      parent: /Accounts.json
       pathType: instance
+  /2010-04-01/Accounts/{AccountSid}/Usage.json:
+    description: 'TODO: Resource-level docs'
+    servers:
+    - url: https://api.twilio.com
+    x-twilio:
+      defaultOutputProperties: []
+      parent: /Accounts.json
+      pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records.json:
     description: Twilio account usage records
     get:
@@ -21114,7 +23205,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -21307,6 +23400,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -21435,6 +23530,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/AllTime.json:
     description: Usage records for all time
@@ -21459,7 +23555,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -21652,6 +23750,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -21780,6 +23880,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/Daily.json:
     description: Usage records summarized by day
@@ -21804,7 +23905,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -21997,6 +24100,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -22125,6 +24230,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/LastMonth.json:
     description: Usage records for last month
@@ -22149,7 +24255,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -22342,6 +24450,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -22470,6 +24580,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/Monthly.json:
     description: Usage records summarized by month
@@ -22494,7 +24605,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -22687,6 +24800,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -22815,6 +24930,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/ThisMonth.json:
     description: Usage records for this month
@@ -22839,7 +24955,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -23032,6 +25150,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -23160,6 +25280,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/Today.json:
     description: Usage records for today
@@ -23184,7 +25305,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -23377,6 +25500,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -23505,6 +25630,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/Yearly.json:
     description: Usage records summarized by year
@@ -23529,7 +25655,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -23722,6 +25850,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -23850,6 +25980,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Records/Yesterday.json:
     description: Usage records for yesterday
@@ -23874,7 +26005,9 @@ paths:
         name: Category
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -24067,6 +26200,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -24195,6 +26330,7 @@ paths:
       - end_date
       - count
       - count_unit
+      parent: /Accounts/{AccountSid}/Usage/Records.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Triggers.json:
     description: Webhooks that notify you of usage thresholds
@@ -24241,7 +26377,9 @@ paths:
         name: UsageCategory
         schema:
           enum:
+          - a2p-registration-fees
           - agent-conference
+          - amazon-polly
           - answering-machine-detection
           - authy-authentications
           - authy-calls-outbound
@@ -24434,6 +26572,8 @@ paths:
           - turnmegabytes-uswest
           - twilio-interconnect
           - verify-push
+          - verify-totp
+          - verify-whatsapp-conversations-business-initiated
           - video-recordings
           - voice-insights
           - voice-insights-client-insights-on-demand-minute
@@ -24556,6 +26696,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 CallbackUrl:
                   description: The URL we should call using `callback_method` when
@@ -24598,7 +26739,9 @@ paths:
                     one of the supported [usage categories](https://www.twilio.com/docs/usage/api/usage-record#usage-categories)
                     for this value.
                   enum:
+                  - a2p-registration-fees
                   - agent-conference
+                  - amazon-polly
                   - answering-machine-detection
                   - authy-authentications
                   - authy-calls-outbound
@@ -24791,6 +26934,8 @@ paths:
                   - turnmegabytes-uswest
                   - twilio-interconnect
                   - verify-push
+                  - verify-totp
+                  - verify-whatsapp-conversations-business-initiated
                   - video-recordings
                   - voice-insights
                   - voice-insights-client-insights-on-demand-minute
@@ -24864,6 +27009,7 @@ paths:
       - friendly_name
       - usage_category
       - trigger_by
+      parent: /Accounts/{AccountSid}/Usage.json
       pathType: list
   /2010-04-01/Accounts/{AccountSid}/Usage/Triggers/{Sid}.json:
     delete:
@@ -24972,6 +27118,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 CallbackUrl:
                   description: The URL we should call using `callback_method` when
@@ -25003,6 +27150,7 @@ paths:
       - friendly_name
       - usage_category
       - trigger_by
+      parent: /Accounts/{AccountSid}/Usage.json
       pathType: instance
   /2010-04-01/Accounts/{Sid}.json:
     description: Twilio accounts (aka Project) or subaccounts

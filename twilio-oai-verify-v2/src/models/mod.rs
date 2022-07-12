@@ -50,5 +50,7 @@ pub mod verify_v2_service_webhook;
 pub use self::verify_v2_service_webhook::VerifyV2ServiceWebhook;
 pub mod verify_v2_verification_attempt;
 pub use self::verify_v2_verification_attempt::VerifyV2VerificationAttempt;
+pub mod verify_v2_verification_attempts_summary;
+pub use self::verify_v2_verification_attempts_summary::VerifyV2VerificationAttemptsSummary;
 pub mod verify_v2_verification_template;
 pub use self::verify_v2_verification_template::VerifyV2VerificationTemplate;

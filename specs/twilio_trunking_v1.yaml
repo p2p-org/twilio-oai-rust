@@ -43,6 +43,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         disaster_recovery_url:
@@ -62,12 +63,12 @@ components:
           type: string
         links:
           description: The URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         recording:
           description: The recording settings for the trunk
           nullable: true
-          type: object
         secure:
           description: Whether Secure Trunking is enabled for the trunk
           nullable: true
@@ -78,6 +79,13 @@ components:
           minLength: 34
           nullable: true
           pattern: ^TK[0-9a-fA-F]{32}$
+          type: string
+        transfer_caller_id:
+          description: Caller Id for transfer target
+          enum:
+          - from-transferee
+          - from-transferor
+          nullable: true
           type: string
         transfer_mode:
           description: The call transfer settings for the trunk
@@ -273,6 +281,7 @@ components:
           type: boolean
         capabilities:
           description: Indicate if a phone can receive calls or messages
+          format: string-map
           nullable: true
           type: object
         date_created:
@@ -292,10 +301,12 @@ components:
           type: string
         links:
           description: The URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         phone_number:
           description: The phone number in E.164 format
+          format: phone-number
           nullable: true
           type: string
         sid:
@@ -322,6 +333,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_fallback_url:
@@ -339,6 +351,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         sms_url:
@@ -361,6 +374,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         trunk_sid:
@@ -396,6 +410,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_fallback_url:
@@ -412,6 +427,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         voice_url:
@@ -455,7 +471,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Trunking
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Trunks:
@@ -535,6 +551,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 DisasterRecoveryUrl:
                   description: The URL we should call using the `disaster_recovery_method`
@@ -562,6 +579,13 @@ paths:
                     be used for media. See [Secure Trunking](https://www.twilio.com/docs/sip-trunking#securetrunking)
                     for more information.
                   type: boolean
+                TransferCallerId:
+                  description: 'Caller Id for transfer target. Can be: `from-transferee`
+                    (default) or `from-transferor`.'
+                  enum:
+                  - from-transferee
+                  - from-transferor
+                  type: string
                 TransferMode:
                   description: 'The call transfer settings for the trunk. Can be:
                     `enable-all`, `sip-only` and `disable-all`. See [Transfer](https://www.twilio.com/docs/sip-trunking/call-transfer)
@@ -676,6 +700,7 @@ paths:
                   - PATCH
                   - PUT
                   - DELETE
+                  format: http-method
                   type: string
                 DisasterRecoveryUrl:
                   description: The URL we should call using the `disaster_recovery_method`
@@ -703,6 +728,13 @@ paths:
                     be used for media. See [Secure Trunking](https://www.twilio.com/docs/sip-trunking#securetrunking)
                     for more information.
                   type: boolean
+                TransferCallerId:
+                  description: 'Caller Id for transfer target. Can be: `from-transferee`
+                    (default) or `from-transferor`.'
+                  enum:
+                  - from-transferee
+                  - from-transferor
+                  type: string
                 TransferMode:
                   description: 'The call transfer settings for the trunk. Can be:
                     `enable-all`, `sip-only` and `disable-all`. See [Transfer](https://www.twilio.com/docs/sip-trunking/call-transfer)
@@ -842,6 +874,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Trunks
       pathType: list
   /v1/Trunks/{TrunkSid}/CredentialLists/{Sid}:
     delete:
@@ -916,6 +949,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Trunks
       pathType: instance
   /v1/Trunks/{TrunkSid}/IpAccessControlLists:
     description: List of IP addresses for accessing a trunk
@@ -1027,6 +1061,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Trunks
       pathType: list
   /v1/Trunks/{TrunkSid}/IpAccessControlLists/{Sid}:
     delete:
@@ -1103,6 +1138,7 @@ paths:
       - sid
       - friendly_name
       - date_created
+      parent: /Trunks
       pathType: instance
   /v1/Trunks/{TrunkSid}/OriginationUrls:
     description: Network element entry points into your communications infrastructure
@@ -1235,6 +1271,7 @@ paths:
       - sip_url
       - priority
       - weight
+      parent: /Trunks
       pathType: list
   /v1/Trunks/{TrunkSid}/OriginationUrls/{Sid}:
     delete:
@@ -1376,6 +1413,7 @@ paths:
       - sip_url
       - priority
       - weight
+      parent: /Trunks
       pathType: instance
   /v1/Trunks/{TrunkSid}/PhoneNumbers:
     description: Phone numbers associated with trunks
@@ -1485,6 +1523,7 @@ paths:
       - sid
       - friendly_name
       - phone_number
+      parent: /Trunks
       pathType: list
   /v1/Trunks/{TrunkSid}/PhoneNumbers/{Sid}:
     delete:
@@ -1559,6 +1598,7 @@ paths:
       - sid
       - friendly_name
       - phone_number
+      parent: /Trunks
       pathType: instance
   /v1/Trunks/{TrunkSid}/Recording:
     description: Recording settings for a trunk
@@ -1641,6 +1681,7 @@ paths:
       defaultOutputProperties:
       - mode
       - trim
+      parent: /Trunks
       pathType: instance
 servers:
 - url: https://trunking.twilio.com

@@ -14,6 +14,8 @@ pub mod list_ip_record_response;
 pub use self::list_ip_record_response::ListIpRecordResponse;
 pub mod list_source_ip_mapping_response;
 pub use self::list_source_ip_mapping_response::ListSourceIpMappingResponse;
+pub mod voice_v1_archived_call;
+pub use self::voice_v1_archived_call::VoiceV1ArchivedCall;
 pub mod voice_v1_byoc_trunk;
 pub use self::voice_v1_byoc_trunk::VoiceV1ByocTrunk;
 pub mod voice_v1_connection_policy;

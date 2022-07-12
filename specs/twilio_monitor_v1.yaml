@@ -56,6 +56,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -150,6 +151,7 @@ components:
           - PATCH
           - PUT
           - DELETE
+          format: http-method
           nullable: true
           type: string
         request_url:
@@ -224,7 +226,6 @@ components:
           description: A JSON string that represents an object with additional data
             about the event
           nullable: true
-          type: object
         event_date:
           description: The ISO 8601 date and time in GMT when the event was recorded
           format: date-time
@@ -236,6 +237,7 @@ components:
           type: string
         links:
           description: The absolute URLs of related resources
+          format: uri-map
           nullable: true
           type: object
         resource_sid:
@@ -285,7 +287,7 @@ info:
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   termsOfService: https://www.twilio.com/legal/tos
   title: Twilio - Monitor
-  version: 1.20.3
+  version: 1.30.0
 openapi: 3.0.1
 paths:
   /v1/Alerts:
